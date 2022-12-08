@@ -156,16 +156,16 @@ class VISS {
             if (dp["value"] != "---") {
               switch (path) {
                 case VSPath.vehicleSpeed:
-                  vehicleSignal.update(speed: double.parse(dp["value"]));
+                  vehicleSignal.update(speed: dp["value"]);
                   break;
                 case VSPath.vehicleEngineRPM:
-                  vehicleSignal.update(rpm: double.parse(dp["value"]));
+                  vehicleSignal.update(rpm: dp["value"].toDouble());
                   break;
                 case VSPath.vehicleFuelLevel:
-                  vehicleSignal.update(fuelLevel: double.parse(dp["value"]));
+                  vehicleSignal.update(fuelLevel: dp["value"]);
                   break;
                 case VSPath.vehicleCoolantTemp:
-                  vehicleSignal.update(coolantTemp: double.parse(dp["value"]));
+                  vehicleSignal.update(coolantTemp: dp["value"]);
                   break;
                 case VSPath.vehicleLeftIndicator:
                   vehicleSignal.update(isLeftIndicator: dp["value"]);
@@ -222,7 +222,7 @@ class VISS {
                   break;
                 case VSPath.vehicleCruiseControlSpeedSet:
                   vehicleSignal.update(
-                      cruiseControlSpeed: double.parse(dp['value']));
+                      cruiseControlSpeed: dp['value']);
                   break;
                 case VSPath.vehicleCruiseControlSpeedisActive:
                   vehicleSignal.update(isCruiseControlActive: dp['value']);
@@ -276,18 +276,18 @@ class VISS {
                   break;
                 //
                 case VSPath.vehicleCurrLat:
-                  vehicleSignal.update(currLat: double.parse(dp['value']));
+                  vehicleSignal.update(currLat: dp['value']);
                   break;
                 case VSPath.vehicleCurrLng:
-                  vehicleSignal.update(currLng: double.parse(dp['value']));
+                  vehicleSignal.update(currLng: dp['value']);
                   break;
                 case VSPath.vehicleDesLat:
-                  vehicleSignal.update(desLat: double.parse(dp['value']));
+                  vehicleSignal.update(desLat: dp['value']);
                   polylineDBNotifier.update(currPolyLineList: []);
 
                   break;
                 case VSPath.vehicleDesLng:
-                  vehicleSignal.update(desLng: double.parse(dp['value']));
+                  vehicleSignal.update(desLng: dp['value']);
                   polylineDBNotifier.update(currPolyLineList: []);
                   break;
                 default:
