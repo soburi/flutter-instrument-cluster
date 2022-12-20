@@ -6,7 +6,7 @@ import 'package:flutter_cluster_dashboard/vehicle_signal/vehicle_signal_model.da
 class Signals extends StatelessWidget {
   final VehicleSignal vehicle;
   final double screenHeight;
-  static Color idleColor = const Color.fromARGB(194, 55, 53, 53);
+  static Color idleColor = Colors.grey.shade600;
   const Signals({
     Key? key,
     required this.screenHeight,

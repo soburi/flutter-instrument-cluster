@@ -192,7 +192,7 @@ class Home extends ConsumerWidget {
                         Padding(
                           padding: EdgeInsets.fromLTRB(
                               calcPadding(60, screenHeight),
-                              calcPadding(10, screenHeight),
+                              0,
                               calcPadding(60, screenHeight),
                               0),
                           child: Row(
@@ -225,9 +225,13 @@ class Home extends ConsumerWidget {
                                         child: (vehicle.isSteeringInfo)
                                             ? const NavigationHome()
                                             : Padding(
-                                                padding: EdgeInsets.all(
-                                                    (48.0 * screenHeight) /
-                                                        720),
+                                                padding: EdgeInsets.symmetric(
+                                                    vertical:
+                                                        (36.0 * screenHeight) /
+                                                            720,
+                                                    horizontal:
+                                                        (48.0 * screenHeight) /
+                                                            720),
                                                 child: Image.asset(
                                                   "images/logo_agl.png",
                                                   width:

@@ -43,7 +43,7 @@ class TurnSignal extends HookConsumerWidget {
                           Colors.black,
                           const Color.fromARGB(255, 99, 251, 104),
                           animationController.value.floorToDouble())
-                      : const Color.fromARGB(255, 49, 48, 48),
+                      : Colors.grey.shade600,
                   width: 0.125 * screenHeight,
                 ),
                 Image.asset(
@@ -53,7 +53,7 @@ class TurnSignal extends HookConsumerWidget {
                           Colors.black,
                           const Color.fromARGB(255, 99, 251, 104),
                           animationController.value.floorToDouble())
-                      : const Color.fromARGB(255, 49, 48, 48),
+                      : Colors.grey.shade600,
                   width: 0.125 * screenHeight,
                 ),
               ],

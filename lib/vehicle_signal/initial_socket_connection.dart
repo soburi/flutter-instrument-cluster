@@ -30,8 +30,8 @@ class InitialScreen extends ConsumerWidget {
           backgroundColor: Colors.black,
           body: NoticeWidget(
             assetImageName: "images/server_error.png",
-            text1: "Server Unavailable",
-            text2: "Retrying to conncect!",
+            text1: "Server unavailable",
+            text2: "Retrying...",
           ),
         );
       },
@@ -39,8 +39,8 @@ class InitialScreen extends ConsumerWidget {
         backgroundColor: Colors.black,
         body: NoticeWidget(
           assetImageName: "images/server.png",
-          text1: "Hi!",
-          text2: "Connecting...!",
+          text1: "Looking for server",
+          text2: "Connecting...",
         ),
       ),
     );
@@ -70,6 +70,7 @@ class NoticeWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       direction: Axis.vertical,
       children: [
+        Container(),
         Flexible(
           child: SizedBox(
             height: 100,
@@ -77,15 +78,17 @@ class NoticeWidget extends StatelessWidget {
                 Image(image: AssetImage(assetImageName), fit: BoxFit.fitWidth),
           ),
         ),
-        Flexible(
-            child: Text(text1,
-                style: const TextStyle(fontWeight: FontWeight.bold))),
-        Flexible(
-            child: Text(text2,
-                style: const TextStyle(fontWeight: FontWeight.bold))),
+        Column(children: [
+          Text(text1,
+              style:
+                  const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+          SizedBox(height: 6),
+          Text(text2,
+              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold))
+        ]),
         Flexible(
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(25, 0, 25, 20),
+            padding: const EdgeInsets.fromLTRB(35, 6, 35, 20),
             child: LinearProgressIndicator(color: loadingColor ?? Colors.red),
           ),
         )
@@ -100,17 +103,24 @@ class LoadingContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Center(
-        child: Container(
-          width: MediaQuery.of(context).size.width / 2,
-          height: MediaQuery.of(context).size.height * 3 / 4,
-          decoration: BoxDecoration(
-              color: Colors.white, borderRadius: BorderRadius.circular(40)),
-          child: child,
-        ),
-      ),
-    );
+    return Row(children: [
+      Spacer(),
+      Column(children: [
+        Spacer(),
+        Center(
+            child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(
+            width: MediaQuery.of(context).size.width / 4,
+            height: MediaQuery.of(context).size.height / 5,
+            decoration: BoxDecoration(
+                color: Colors.white, borderRadius: BorderRadius.circular(20)),
+            child: child,
+          ),
+        )),
+        SizedBox(height: 32)
+      ]),
+      Spacer(),
+    ]);
   }
 }
