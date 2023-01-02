@@ -15,6 +15,7 @@ import 'package:flutter_cluster_dashboard/screen/widgets/guages/speed_guage_anim
 import 'package:flutter_cluster_dashboard/screen/widgets/signals.dart';
 import 'package:flutter_cluster_dashboard/screen/widgets/turn_signal.dart';
 import 'package:flutter_cluster_dashboard/vehicle_signal/vehicle_signal_provider.dart';
+import 'package:flutter_cluster_dashboard/cluster_config.dart';
 import 'package:intl/intl.dart';
 
 class Home extends ConsumerWidget {
@@ -46,6 +47,7 @@ class Home extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final clusterConfig = ref.read(clusterConfigStateprovider);
     final vehicle = ref.watch(vehicleSignalProvider);
     final clock = ref.watch(clockProvider);
     final windowHeight = MediaQuery.of(context).size.height;
@@ -222,7 +224,9 @@ class Home extends ConsumerWidget {
                                       fit: FlexFit.tight,
                                       child: SizedBox(
                                         width: (330 * screenHeight) / 720,
-                                        child: (vehicle.isSteeringInfo)
+                                        child: (clusterConfig
+                                                    .enableNavigation &&
+                                                vehicle.isSteeringInfo)
                                             ? const NavigationHome()
                                             : Padding(
                                                 padding: EdgeInsets.symmetric(

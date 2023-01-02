@@ -23,7 +23,7 @@ class _GetConfigState extends ConsumerState<GetConfig> {
 
       String configFilePath = '/etc/xdg/AGL/flutter-cluster-dashboard.yaml';
       String orsKeyFilePath = '/etc/default/openroutekey';
-      
+
       String keyContent = "";
 
       final configFile = File(configFilePath);
@@ -34,6 +34,7 @@ class _GetConfigState extends ConsumerState<GetConfig> {
         configStateProvider.update(
           hostname: yamlMap['hostname'],
           port: yamlMap['port'],
+          enableNavigation: yamlMap['enableNavigation'],
           homeLat: yamlMap['homeLat'],
           homeLng: yamlMap['homeLng'],
           orsPathParam: yamlMap['orsPathParam'],
@@ -43,7 +44,8 @@ class _GetConfigState extends ConsumerState<GetConfig> {
 
       orsKeyFile.readAsString().then((content) {
         keyContent = content.split(':')[1].trim();
-        if (keyContent.isNotEmpty && keyContent != 'YOU_NEED_TO_SET_IT_IN_LOCAL_CONF') {
+        if (keyContent.isNotEmpty &&
+            keyContent != 'YOU_NEED_TO_SET_IT_IN_LOCAL_CONF') {
           configStateProvider.update(orsApiKey: keyContent);
         } else {
           print("WARNING: openrouteservice API Key not found !");
@@ -84,6 +86,7 @@ class ClusterConfig {
     required this.hostname,
     required this.port,
     required this.kuksaAuthToken,
+    required this.enableNavigation,
     required this.orsApiKey,
     required this.orsPathParam,
     required this.homeLat,
@@ -92,6 +95,7 @@ class ClusterConfig {
   final String hostname;
   final int port;
   final String kuksaAuthToken;
+  final bool enableNavigation;
   final double homeLat;
   final double homeLng;
   final String orsApiKey;
@@ -101,6 +105,7 @@ class ClusterConfig {
     String? hostname,
     int? port,
     String? kuksaAuthToken,
+    bool? enableNavigation,
     double? homeLat,
     double? homeLng,
     String? orsApiKey,
@@ -110,6 +115,7 @@ class ClusterConfig {
         hostname: hostname ?? this.hostname,
         port: port ?? this.port,
         kuksaAuthToken: kuksaAuthToken ?? this.kuksaAuthToken,
+        enableNavigation: enableNavigation ?? this.enableNavigation,
         orsApiKey: orsApiKey ?? this.orsApiKey,
         orsPathParam: orsPathParam ?? this.orsPathParam,
         homeLat: homeLat ?? this.homeLat,
@@ -123,6 +129,7 @@ class ClusterConfigStateNotifier extends StateNotifier<ClusterConfig> {
     hostname: "",
     port: 0,
     kuksaAuthToken: "",
+    enableNavigation: false,
     orsApiKey: "",
     orsPathParam: "",
     homeLat: 0,
@@ -132,6 +139,7 @@ class ClusterConfigStateNotifier extends StateNotifier<ClusterConfig> {
     String? hostname,
     int? port,
     String? kuksaAuthToken,
+    bool? enableNavigation,
     double? homeLat,
     double? homeLng,
     String? orsApiKey,
@@ -141,6 +149,7 @@ class ClusterConfigStateNotifier extends StateNotifier<ClusterConfig> {
       hostname: hostname,
       port: port,
       kuksaAuthToken: kuksaAuthToken,
+      enableNavigation: enableNavigation,
       homeLat: homeLat,
       homeLng: homeLng,
       orsApiKey: orsApiKey,

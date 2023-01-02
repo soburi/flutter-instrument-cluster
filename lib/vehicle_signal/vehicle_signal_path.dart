@@ -6,7 +6,7 @@ class VSPath {
       "Vehicle.Powertrain.CombustionEngine.Speed";
   static const String vehicleFuelLevel = "Vehicle.Powertrain.FuelSystem.Level";
   static const String vehicleCoolantTemp =
-      "Vehicle.Powertrain.CombustionEngine.Engine.ECT";
+      "Vehicle.Powertrain.CombustionEngine.ECT";
   static const String vehicleLeftIndicator =
       "Vehicle.Body.Lights.IsLeftIndicatorOn";
   static const String vehicleRightIndicator =
@@ -19,22 +19,22 @@ class VSPath {
   static const String vehicleParkingLightOn = "Vehicle.Body.Lights.IsParkingOn";
   static const String vehicleHazardLightOn = "Vehicle.Body.Lights.IsHazardOn";
   static const String vehicleTravelledDistance = "Vehicle.TravelledDistance";
-  static const String vehicleTrunkLocked = "Vehicle.Body.Trunk.IsLocked";
-  static const String vehicleTrunkOpen = "Vehicle.Body.Trunk.IsOpen";
+  static const String vehicleTrunkLocked = "Vehicle.Body.Trunk.Rear.IsLocked";
+  static const String vehicleTrunkOpen = "Vehicle.Body.Trunk.Rear.IsOpen";
   // \"normal\",\"sport\",\"economy\",\"snow\",\"rain\"]
   static const String vehiclePerformanceMode =
       "Vehicle.Powertrain.Transmission.PerformanceMode";
   static const String vehicleAmbientAirTemperature =
-      "Vehicle.AmbientAirTemperature";
-  static const String vehicleMIL = "Vehicle.OBD.Status.MIL";
+      "Vehicle.Exterior.AirTemperature";
+  static const String vehicleMIL = "Vehicle.OBD.Status.IsMILOn";
   static const String vehicleCruiseControlError =
-      "Vehicle.ADAS.CruiseControl.Error";
+      "Vehicle.ADAS.CruiseControl.IsError";
   static const String vehicleCruiseControlSpeedSet =
       "Vehicle.ADAS.CruiseControl.SpeedSet";
   static const String vehicleCruiseControlSpeedisActive =
       "Vehicle.ADAS.CruiseControl.IsActive";
   static const String vehicleBatteryChargingStatus =
-      "Vehicle.Powertrain.Battery.Charging.Status";
+      "Vehicle.Powertrain.TractionBattery.Charging.IsCharging";
 
   static const String steeringCruiseEnable =
       "Vehicle.Cabin.SteeringWheel.Switches.CruiseEnable";
@@ -51,10 +51,8 @@ class VSPath {
   static const String vehicleDistanceUnit =
       "Vehicle.Cabin.Infotainment.HMI.DistanceUnit";
 
-  static const String vehicleCurrLat =
-      "Vehicle.Cabin.Infotainment.Navigation.CurrentLocation.Latitude";
-  static const String vehicleCurrLng =
-      "Vehicle.Cabin.Infotainment.Navigation.CurrentLocation.Longitude";
+  static const String vehicleCurrLat = "Vehicle.CurrentLocation.Latitude";
+  static const String vehicleCurrLng = "Vehicle.CurrentLocation.Longitude";
   static const String vehicleDesLat =
       "Vehicle.Cabin.Infotainment.Navigation.DestinationSet.Latitude";
   static const String vehicleDesLng =

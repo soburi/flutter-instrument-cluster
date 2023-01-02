@@ -2,6 +2,7 @@
 
 import 'dart:convert';
 import 'dart:io';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_cluster_dashboard/cluster_config.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_cluster_dashboard/map/networkPolyline.dart';
@@ -221,8 +222,7 @@ class VISS {
                   vehicleSignal.update(isCruiseControlError: dp['value']);
                   break;
                 case VSPath.vehicleCruiseControlSpeedSet:
-                  vehicleSignal.update(
-                      cruiseControlSpeed: dp['value']);
+                  vehicleSignal.update(cruiseControlSpeed: dp['value']);
                   break;
                 case VSPath.vehicleCruiseControlSpeedisActive:
                   vehicleSignal.update(isCruiseControlActive: dp['value']);
@@ -306,8 +306,8 @@ class VISS {
             .containsKey("dp")) {
           print("ERROR:'dp':key not found !");
         }
-      } else {
-        print("ERROR:'data':key not found!");
+      } else if (dataMap.containsKey("error")) {
+        print("ERROR: ${dataMap['error']['message']}");
       }
     }
   }
