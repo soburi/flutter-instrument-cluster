@@ -8,16 +8,16 @@ class VSPath {
   static const String vehicleCoolantTemp =
       "Vehicle.Powertrain.CombustionEngine.ECT";
   static const String vehicleLeftIndicator =
-      "Vehicle.Body.Lights.IsLeftIndicatorOn";
+      "Vehicle.Body.Lights.DirectionIndicator.Left.IsSignaling";
   static const String vehicleRightIndicator =
-      "Vehicle.Body.Lights.IsRightIndicatorOn";
+      "Vehicle.Body.Lights.DirectionIndicator.Right.IsSignaling";
   //Selected Gear output=> 0=Neutral, 1/2/..=Forward, -1/..=Reverse, 126=Park, 127=Drive
   static const String vehicleSelectedGear =
       "Vehicle.Powertrain.Transmission.SelectedGear";
-  static const String vehicleLowBeamOn = "Vehicle.Body.Lights.IsLowBeamOn";
-  static const String vehicleHighBeamOn = "Vehicle.Body.Lights.IsHighBeamOn";
-  static const String vehicleParkingLightOn = "Vehicle.Body.Lights.IsParkingOn";
-  static const String vehicleHazardLightOn = "Vehicle.Body.Lights.IsHazardOn";
+  static const String vehicleLowBeamOn = "Vehicle.Body.Lights.Beam.Low.IsOn";
+  static const String vehicleHighBeamOn = "Vehicle.Body.Lights.Beam.High.IsOn";
+  static const String vehicleParkingLightOn = "Vehicle.Body.Lights.Parking.IsOn";
+  static const String vehicleHazardLightOn = "Vehicle.Body.Lights.Hazard.IsSignaling";
   static const String vehicleTravelledDistance = "Vehicle.TravelledDistance";
   static const String vehicleTrunkLocked = "Vehicle.Body.Trunk.Rear.IsLocked";
   static const String vehicleTrunkOpen = "Vehicle.Body.Trunk.Rear.IsOpen";
