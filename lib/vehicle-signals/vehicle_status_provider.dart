@@ -1,7 +1,9 @@
 // SPDX-License-Identifier: Apache-2.0
 
-class VehicleSignal {
-  VehicleSignal({
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+class VehicleStatus {
+  VehicleStatus({
     required this.speed,
     required this.rpm,
     required this.fuelLevel,
@@ -23,7 +25,8 @@ class VehicleSignal {
     required this.isTrunkLocked,
     required this.isTrunkOpen,
     required this.isBatteryCharging,
-    //steering switches
+
+    // steering switches
     required this.vehicleDistanceUnit,
     required this.isSteeringCruiseEnable,
     required this.isSteeringCruiseSet,
@@ -31,12 +34,8 @@ class VehicleSignal {
     required this.isSteeringCruiseCancel,
     required this.isSteeringLaneWarning,
     required this.isSteeringInfo,
-    // map coordinates
-    required this.currLat,
-    required this.currLng,
-    required this.desLat,
-    required this.desLng,
   });
+
   final double speed;
   final double rpm;
   final double fuelLevel;
@@ -46,7 +45,7 @@ class VehicleSignal {
   final bool isRightIndicator;
   final String selectedGear;
   final String performanceMode;
-  final String ambientAirTemp;
+  final double ambientAirTemp;
   final bool isLowBeam;
   final bool isHighBeam;
   final bool isParkingOn;
@@ -67,12 +66,7 @@ class VehicleSignal {
   final bool isSteeringLaneWarning;
   final bool isSteeringInfo;
 
-  final double currLat;
-  final double currLng;
-  final double desLat;
-  final double desLng;
-
-  VehicleSignal copyWith({
+  VehicleStatus copyWith({
     double? speed,
     double? rpm,
     double? fuelLevel,
@@ -81,7 +75,7 @@ class VehicleSignal {
     bool? isRightIndicator,
     String? selectedGear,
     String? performanceMode,
-    String? ambientAirTemp,
+    double? ambientAirTemp,
     bool? isLowBeam,
     bool? isHighBeam,
     bool? isHazardLightOn,
@@ -102,13 +96,8 @@ class VehicleSignal {
     bool? isSteeringCruiseCancel,
     bool? isSteeringLaneWarning,
     bool? isSteeringInfo,
-    // map coordinates
-    double? currLat,
-    double? currLng,
-    double? desLat,
-    double? desLng,
   }) {
-    return VehicleSignal(
+    return VehicleStatus(
       speed: speed ?? (this.speed),
       rpm: rpm ?? this.rpm,
       fuelLevel: fuelLevel ?? this.fuelLevel,
@@ -142,11 +131,108 @@ class VehicleSignal {
       isSteeringLaneWarning:
           isSteeringLaneWarning ?? this.isSteeringLaneWarning,
       vehicleDistanceUnit: vehicleDistanceUnit ?? this.vehicleDistanceUnit,
+    );
+  }
+}
+
+final vehicleStatusProvider =
+    StateNotifierProvider<VehicleStatusNotifier, VehicleStatus>(
+  (ref) => VehicleStatusNotifier(),
+);
+
+class VehicleStatusNotifier extends StateNotifier<VehicleStatus> {
+  VehicleStatusNotifier() : super(_initialValue);
+  static final VehicleStatus _initialValue = VehicleStatus(
+    speed: 140,
+    rpm: 7000,
+    fuelLevel: 90,
+    coolantTemp: 90,
+    isLeftIndicator: false,
+    isRightIndicator: false,
+    selectedGear: "P",
+    performanceMode: "normal",
+    isHazardLightOn: false,
+    isHighBeam: true,
+    isLowBeam: false,
+    isParkingOn: true,
+    travelledDistance: 888,
+    ambientAirTemp: 25,
+    cruiseControlSpeed: 60,
+    isCruiseControlActive: false,
+    isCruiseControlError: false,
+    isMILon: false,
+    isTrunkLocked: true,
+    isTrunkOpen: false,
+    isBatteryCharging: true,
+    isSteeringCruiseEnable: false,
+    isSteeringCruiseSet: false,
+    isSteeringCruiseResume: false,
+    isSteeringCruiseCancel: false,
+    isSteeringInfo: false,
+    isSteeringLaneWarning: false,
+    vehicleDistanceUnit: 'km',
+  );
+  void update({
+    double? speed,
+    double? rpm,
+    double? fuelLevel,
+    double? coolantTemp,
+    bool? isLeftIndicator,
+    bool? isRightIndicator,
+    String? selectedGear,
+    String? performanceMode,
+    double? ambientAirTemp,
+    bool? isLowBeam,
+    bool? isHighBeam,
+    bool? isHazardLightOn,
+    bool? isMILon,
+    bool? isParkingOn,
+    bool? isTrunkOpen,
+    bool? isTrunkLocked,
+    bool? isCruiseControlActive,
+    bool? isCruiseControlError,
+    bool? isBatteryCharging,
+    double? travelledDistance,
+    double? cruiseControlSpeed,
+    //
+    String? vehicleDistanceUnit,
+    bool? isSteeringCruiseEnable,
+    bool? isSteeringCruiseSet,
+    bool? isSteeringCruiseResume,
+    bool? isSteeringCruiseCancel,
+    bool? isSteeringLaneWarning,
+    bool? isSteeringInfo,
+  }) {
+    state = state.copyWith(
+      speed: speed,
+      rpm: rpm,
+      fuelLevel: fuelLevel,
+      coolantTemp: coolantTemp,
+      isLeftIndicator: isLeftIndicator,
+      isRightIndicator: isRightIndicator,
+      selectedGear: selectedGear,
+      isLowBeam: isLowBeam,
+      isHighBeam: isHighBeam,
+      isHazardLightOn: isHazardLightOn,
+      travelledDistance: travelledDistance,
+      performanceMode: performanceMode,
+      isParkingOn: isParkingOn,
+      isTrunkOpen: isTrunkOpen,
+      isTrunkLocked: isTrunkLocked,
+      isMILon: isMILon,
+      ambientAirTemp: ambientAirTemp,
+      isCruiseControlActive: isCruiseControlActive,
+      isCruiseControlError: isCruiseControlError,
+      cruiseControlSpeed: cruiseControlSpeed,
+      isBatteryCharging: isBatteryCharging,
       //
-      currLat: currLat ?? this.currLat,
-      currLng: currLng ?? this.currLng,
-      desLat: desLat ?? this.desLat,
-      desLng: desLng ?? this.desLng,
+      isSteeringCruiseEnable: isSteeringCruiseEnable,
+      isSteeringCruiseSet: isSteeringCruiseSet,
+      isSteeringCruiseResume: isSteeringCruiseResume,
+      isSteeringCruiseCancel: isSteeringCruiseCancel,
+      isSteeringInfo: isSteeringInfo,
+      isSteeringLaneWarning: isSteeringLaneWarning,
+      vehicleDistanceUnit: vehicleDistanceUnit,
     );
   }
 }

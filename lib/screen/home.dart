@@ -2,29 +2,44 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_cluster_dashboard/map/navigationHome.dart';
 import 'package:flutter_cluster_dashboard/provider.dart';
-import 'package:flutter_cluster_dashboard/screen/widgets/guages/guage_props.dart';
+import 'package:flutter_cluster_dashboard/screen/widgets/gauges/gauge_props.dart';
 import 'package:flutter_cluster_dashboard/screen/paints/bottombar_paint.dart';
 import 'package:flutter_cluster_dashboard/screen/paints/topbar_paint.dart';
-import 'package:flutter_cluster_dashboard/screen/widgets/guages/rpm_guage_animation_wrapper.dart';
+import 'package:flutter_cluster_dashboard/screen/widgets/gauges/rpm_gauge_animation_wrapper.dart';
 import 'package:flutter_cluster_dashboard/screen/widgets/left_bar.dart';
 import 'package:flutter_cluster_dashboard/screen/widgets/performance_mode.dart';
 import 'package:flutter_cluster_dashboard/screen/widgets/right_bar.dart';
-import 'package:flutter_cluster_dashboard/screen/widgets/guages/speed_guage_animation_wrapper.dart';
+import 'package:flutter_cluster_dashboard/screen/widgets/gauges/speed_gauge_animation_wrapper.dart';
 import 'package:flutter_cluster_dashboard/screen/widgets/signals.dart';
 import 'package:flutter_cluster_dashboard/screen/widgets/turn_signal.dart';
-import 'package:flutter_cluster_dashboard/vehicle_signal/vehicle_signal_provider.dart';
-import 'package:flutter_cluster_dashboard/cluster_config.dart';
+import 'package:flutter_cluster_dashboard/vehicle-signals/vss_client.dart';
+import 'package:flutter_cluster_dashboard/vehicle-signals/vss_provider.dart';
+import 'package:flutter_cluster_dashboard/vehicle-signals/vehicle_status_provider.dart';
 import 'package:intl/intl.dart';
 
-class Home extends ConsumerWidget {
+class Home extends ConsumerStatefulWidget {
   const Home({Key? key}) : super(key: key);
-  GuageColors? getGuageColor(String mode) {
+
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends ConsumerState<Home> {
+  late VssClient vss;
+
+  initState() {
+    vss = ref.read(vssClientProvider);
+    vss.run();
+
+    super.initState();
+  }
+
+  GaugeColors? getGaugeColor(String mode) {
     return (mode == "economy")
-        ? GuageProps.ecoModeColor
+        ? GaugeProps.ecoModeColor
         : (mode == "sport")
-            ? GuageProps.sportModeColor
+            ? GaugeProps.sportModeColor
             : null;
   }
 
@@ -46,9 +61,12 @@ class Home extends ConsumerWidget {
   }
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final clusterConfig = ref.read(clusterConfigStateprovider);
-    final vehicle = ref.watch(vehicleSignalProvider);
+  Widget build(BuildContext context) {
+    final bool isLeftIndicator = ref.watch(vehicleStatusProvider.select((p) => p.isLeftIndicator));
+    final bool isRightIndicator = ref.watch(vehicleStatusProvider.select((p) => p.isRightIndicator));
+    final String performanceMode = ref.watch(vehicleStatusProvider.select((p) => p.performanceMode));
+    final String selectedGear = ref.watch(vehicleStatusProvider.select((p) => p.selectedGear));
+    final double ambientAirTemp = ref.watch(vehicleStatusProvider.select((p) => p.ambientAirTemp));
     final clock = ref.watch(clockProvider);
     final windowHeight = MediaQuery.of(context).size.height;
     final windowWidth = MediaQuery.of(context).size.width;
@@ -68,7 +86,7 @@ class Home extends ConsumerWidget {
     }
 
     return Scaffold(
-      backgroundColor: GuageProps.bgColor,
+      backgroundColor: GaugeProps.bgColor,
       body: SafeArea(
         child: Center(
           child: Center(
@@ -87,8 +105,8 @@ class Home extends ConsumerWidget {
                       children: [
                         TurnSignal(
                           screenHeight: screenHeight,
-                          isLefton: vehicle.isLeftIndicator,
-                          isRighton: vehicle.isRightIndicator,
+                          isLefton: isLeftIndicator,
+                          isRighton: isRightIndicator,
                         ),
                         Flex(
                           direction: Axis.horizontal,
@@ -128,7 +146,7 @@ class Home extends ConsumerWidget {
                                       SizedBox(
                                           width: (30 * screenHeight) / 480),
                                       Text(
-                                        "${vehicle.ambientAirTemp} ${"\u00B0"}C",
+                                        "${ambientAirTemp} ${"\u00B0"}C",
                                         style: TextStyle(
                                             color: const Color.fromARGB(
                                                 255, 184, 183, 183),
@@ -216,7 +234,7 @@ class Home extends ConsumerWidget {
                                       child: PerformanceMode(
                                           size: Size((90 * screenHeight) / 480,
                                               (20 * screenHeight) / 480),
-                                          mode: vehicle.performanceMode),
+                                          mode: performanceMode),
                                     ),
                                     // logo
                                     Flexible(
@@ -224,25 +242,18 @@ class Home extends ConsumerWidget {
                                       fit: FlexFit.tight,
                                       child: SizedBox(
                                         width: (330 * screenHeight) / 720,
-                                        child: (clusterConfig
-                                                    .enableNavigation &&
-                                                vehicle.isSteeringInfo)
-                                            ? const NavigationHome()
-                                            : Padding(
-                                                padding: EdgeInsets.symmetric(
-                                                    vertical:
-                                                        (36.0 * screenHeight) /
-                                                            720,
-                                                    horizontal:
-                                                        (48.0 * screenHeight) /
-                                                            720),
-                                                child: Image.asset(
-                                                  "images/logo_agl.png",
-                                                  width:
-                                                      (90 * screenHeight) / 480,
-                                                  color: Colors.grey.shade600,
-                                                ),
-                                              ),
+                                        child: Padding(
+                                            padding: EdgeInsets.symmetric(
+                                                vertical:
+                                                    (36.0 * screenHeight) / 720,
+                                                horizontal:
+                                                    (48.0 * screenHeight) / 720),
+                                            child: Image.asset(
+                                                "images/logo_agl.png",
+                                                width: (90 * screenHeight) / 480,
+                                            color: Colors.grey.shade600,
+                                          ),
+                                        ),
                                       ),
                                     ),
                                     const Flexible(
@@ -265,14 +276,11 @@ class Home extends ConsumerWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Signals(
-                                screenHeight: screenHeight,
-                                vehicle: vehicle,
-                              ),
+                              Signals(screenHeight: screenHeight),
                             ],
                           ),
                         ),
-                        // guages
+                        // gauges
                         Padding(
                           padding: EdgeInsets.fromLTRB(
                               calcPadding(70, screenHeight),
@@ -283,17 +291,17 @@ class Home extends ConsumerWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              // Speed Guage
+                              // Speed Gauge
                               SpeedGauge(
                                 screenHeight: screenHeight,
-                                guageColor:
-                                    getGuageColor(vehicle.performanceMode),
+                                gaugeColor:
+                                    getGaugeColor(performanceMode),
                               ),
-                              //RPM Guage
+                              //RPM Gauge
                               RPMGauge(
                                 screenHeight: screenHeight,
-                                guageColor:
-                                    getGuageColor(vehicle.performanceMode),
+                                gaugeColor:
+                                    getGaugeColor(performanceMode),
                               ),
                             ],
                           ),
@@ -314,33 +322,33 @@ class Home extends ConsumerWidget {
                           child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                (vehicle.selectedGear == Gear.parking)
+                                (selectedGear == Gear.parking)
                                     ? Text("P",
-                                        style: GuageProps.activeGearIconStyle(
+                                        style: GaugeProps.activeGearIconStyle(
                                             screenHeight))
                                     : Text("P",
-                                        style: GuageProps.gearIconStyle(
+                                        style: GaugeProps.gearIconStyle(
                                             screenHeight)),
-                                (vehicle.selectedGear == Gear.reverse)
+                                (selectedGear == Gear.reverse)
                                     ? Text("R",
-                                        style: GuageProps.activeGearIconStyle(
+                                        style: GaugeProps.activeGearIconStyle(
                                             screenHeight))
                                     : Text("R",
-                                        style: GuageProps.gearIconStyle(
+                                        style: GaugeProps.gearIconStyle(
                                             screenHeight)),
-                                (vehicle.selectedGear == Gear.neutral)
+                                (selectedGear == Gear.neutral)
                                     ? Text("N",
-                                        style: GuageProps.activeGearIconStyle(
+                                        style: GaugeProps.activeGearIconStyle(
                                             screenHeight))
                                     : Text("N",
-                                        style: GuageProps.gearIconStyle(
+                                        style: GaugeProps.gearIconStyle(
                                             screenHeight)),
-                                (vehicle.selectedGear == Gear.drive)
+                                (selectedGear == Gear.drive)
                                     ? Text("D",
-                                        style: GuageProps.activeGearIconStyle(
+                                        style: GaugeProps.activeGearIconStyle(
                                             screenHeight))
                                     : Text("D",
-                                        style: GuageProps.gearIconStyle(
+                                        style: GaugeProps.gearIconStyle(
                                             screenHeight)),
                               ]),
                         ),

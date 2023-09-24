@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter_cluster_dashboard/screen/paints/arc_painter.dart';
-import 'package:flutter_cluster_dashboard/vehicle_signal/vehicle_signal_model.dart';
-import 'package:flutter_cluster_dashboard/vehicle_signal/vehicle_signal_provider.dart';
+import 'package:flutter_cluster_dashboard/vehicle-signals/vehicle_status_provider.dart';
 
 class LeftArc extends HookConsumerWidget {
   final double screenHeight;
@@ -14,11 +13,11 @@ class LeftArc extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final VehicleSignal vehicle = ref.watch(vehicleSignalProvider);
+    final double coolantTemp = ref.watch(vehicleStatusProvider.select((p) => p.coolantTemp));
     final animationController = useAnimationController(
       lowerBound: 0,
       upperBound: 100,
-    )..animateTo(vehicle.coolantTemp,
+    )..animateTo(coolantTemp,
         duration: const Duration(milliseconds: 1000));
 
     return AnimatedBuilder(

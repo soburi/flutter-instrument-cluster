@@ -2,11 +2,11 @@
 
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutter_cluster_dashboard/screen/paints/guage_paint.dart';
-import 'package:flutter_cluster_dashboard/screen/widgets/guages/guage_props.dart';
+import 'package:flutter_cluster_dashboard/screen/paints/gauge_paint.dart';
+import 'package:flutter_cluster_dashboard/screen/widgets/gauges/gauge_props.dart';
 
-class CustomGuage extends StatelessWidget {
-  const CustomGuage({
+class CustomGauge extends StatelessWidget {
+  const CustomGauge({
     Key? key,
     required this.mainValue,
     required this.low,
@@ -59,14 +59,14 @@ class CustomGuage extends StatelessWidget {
       child: Stack(
         alignment: Alignment.topCenter,
         children: [
-          // Guage painter
+          // Gauge painter
           Positioned(
             top: 0,
             child: Transform.rotate(
-              angle: (pi / 2) + (GuageProps.minorAngle * (pi / 360.0)),
+              angle: (pi / 2) + (GaugeProps.minorAngle * (pi / 360.0)),
               child: CustomPaint(
                 size: Size(size ?? 400, size ?? 400),
-                painter: GuagePainter(
+                painter: GaugePainter(
                   low: low,
                   high: high,
                   currentSpeed: mainValue,
@@ -77,17 +77,17 @@ class CustomGuage extends StatelessWidget {
               ),
             ),
           ),
-          // Guage Label
+          // Gauge Label
           Positioned(
             top: distLabelTop ?? ((100 / 400) * (size ?? 400)),
             child: Text(label, style: labelTextStyle),
           ),
-          // Guage Main Value
+          // Gauge Main Value
           Positioned(
             top: distMainTop ?? ((150 / 400) * (size ?? 400)),
             child: Text("${mainValue.toInt()}", style: mainValueTextStyle),
           ),
-          // Guage Ticks value
+          // Gauge Ticks value
           Positioned(
             bottom: distTicksBottom ?? ((80 / 400) * (size ?? 400)),
             child: Row(

@@ -3,17 +3,17 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 
-class GuageProps {
-  static GuageColors normalModeColor = GuageColors(
+class GaugeProps {
+  static GaugeColors normalModeColor = GaugeColors(
     inPrimary: const Color.fromARGB(255, 67, 67, 67),
     outPrimary: const Color.fromARGB(255, 120, 120, 120),
     secondary: const Color.fromARGB(156, 226, 226, 200),
   );
-  static GuageColors sportModeColor = GuageColors(
+  static GaugeColors sportModeColor = GaugeColors(
       inPrimary: Colors.deepPurple,
       outPrimary: Colors.blue,
       secondary: const Color.fromARGB(214, 202, 202, 202));
-  static GuageColors ecoModeColor = GuageColors(
+  static GaugeColors ecoModeColor = GaugeColors(
       inPrimary: const Color.fromARGB(255, 85, 165, 87),
       outPrimary: const Color.fromARGB(255, 40, 92, 42),
       secondary: const Color.fromARGB(202, 194, 238, 195));
@@ -40,9 +40,9 @@ class GuageProps {
   }
 }
 
-class GuageColors {
+class GaugeColors {
   Color? inPrimary;
   Color? outPrimary;
   Color? secondary;
-  GuageColors({this.inPrimary, this.outPrimary, this.secondary});
+  GaugeColors({this.inPrimary, this.outPrimary, this.secondary});
 }

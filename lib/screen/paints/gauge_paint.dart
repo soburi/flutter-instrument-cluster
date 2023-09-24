@@ -3,15 +3,15 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'dart:ui' as ui;
-import 'package:flutter_cluster_dashboard/screen/widgets/guages/guage_props.dart';
+import 'package:flutter_cluster_dashboard/screen/widgets/gauges/gauge_props.dart';
 
-class GuagePainter extends CustomPainter {
+class GaugePainter extends CustomPainter {
   final double low, high;
   double currentSpeed;
   final Color? outPrimaryColor;
   final Color? inPrimaryColor;
   final Color? secondaryColor;
-  GuagePainter({
+  GaugePainter({
     required this.low,
     required this.high,
     required this.currentSpeed,
@@ -25,7 +25,7 @@ class GuagePainter extends CustomPainter {
     double radius = min(size.width / 2, size.height / 2);
     double radius1 = radius - ((20 / 200) * (radius));
     double speedAngle =
-        GuageProps.degToRad((GuageProps.majorAngle / high) * currentSpeed);
+        GaugeProps.degToRad((GaugeProps.majorAngle / high) * currentSpeed);
 
     final zeroTickPaint = Paint()
       ..strokeWidth = ((7 / 200) * (radius))
@@ -89,8 +89,8 @@ class GuagePainter extends CustomPainter {
           [Colors.black, const Color.fromARGB(255, 142, 35, 39)], [0.65, 0.9]);
 
     for (double i = 0; i < 13; i++) {
-      double startAngle = GuageProps.degToRad(i * 20);
-      double gapAngle = GuageProps.degToRad(19);
+      double startAngle = GaugeProps.degToRad(i * 20);
+      double gapAngle = GaugeProps.degToRad(19);
 
       var outerPath = Path();
       outerPath.addArc(Rect.fromCircle(center: center, radius: radius),
@@ -132,8 +132,8 @@ class GuagePainter extends CustomPainter {
         zeroTickPaint);
     canvas.drawLine(
         center,
-        Offset(center.dx + (radius) * cos(GuageProps.majorAngleRad),
-            center.dy + (radius) * sin(GuageProps.majorAngleRad)),
+        Offset(center.dx + (radius) * cos(GaugeProps.majorAngleRad),
+            center.dy + (radius) * sin(GaugeProps.majorAngleRad)),
         maxTickPaint);
   }
 

@@ -4,20 +4,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:flutter_cluster_dashboard/screen/widgets/guages/guage_props.dart';
-import 'package:flutter_cluster_dashboard/screen/widgets/guages/guage_widget.dart';
-import 'package:flutter_cluster_dashboard/vehicle_signal/vehicle_signal_model.dart';
-import 'package:flutter_cluster_dashboard/vehicle_signal/vehicle_signal_provider.dart';
+import 'package:flutter_cluster_dashboard/screen/widgets/gauges/gauge_props.dart';
+import 'package:flutter_cluster_dashboard/screen/widgets/gauges/gauge_widget.dart';
+import 'package:flutter_cluster_dashboard/vehicle-signals/vehicle_status_provider.dart';
 
 class RPMGauge extends HookConsumerWidget {
   final double screenHeight;
-  final GuageColors? guageColor;
-  const RPMGauge({Key? key, required this.screenHeight, this.guageColor})
+  final GaugeColors? gaugeColor;
+  const RPMGauge({Key? key, required this.screenHeight, this.gaugeColor})
       : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final VehicleSignal vehicle = ref.watch(vehicleSignalProvider);
+    final double rpm = ref.watch(vehicleStatusProvider.select((p) => p.rpm));
 
     const double minRPM = 0;
     const double maxRPM = 8000;
@@ -26,14 +25,14 @@ class RPMGauge extends HookConsumerWidget {
     final animationController = useAnimationController(
       lowerBound: minRPM,
       upperBound: maxRPM,
-    )..animateTo(vehicle.rpm,
+    )..animateTo(rpm,
         duration: sweepDuration, curve: Curves.linearToEaseOut);
     return AnimatedBuilder(
         animation: animationController,
         builder: (context, child) {
           return Padding(
             padding: const EdgeInsets.all(8.0),
-            child: CustomGuage(
+            child: CustomGauge(
               size: (248 * screenHeight) / 480,
               low: minRPM,
               high: maxRPM,
@@ -41,9 +40,9 @@ class RPMGauge extends HookConsumerWidget {
               label: "rpm",
               zeroTickLabel: minRPM.toInt().toString(),
               maxTickLabel: maxRPM.toInt().toString(),
-              inPrimaryColor: guageColor?.inPrimary,
-              outPrimaryColor: guageColor?.outPrimary,
-              secondaryColor: guageColor?.secondary,
+              inPrimaryColor: gaugeColor?.inPrimary,
+              outPrimaryColor: gaugeColor?.outPrimary,
+              secondaryColor: gaugeColor?.secondary,
             ),
           );
         });
