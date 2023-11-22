@@ -6,7 +6,7 @@ class VSSPath {
   static const String vehicleEngineRPM =
       "Vehicle.Powertrain.CombustionEngine.Speed";
 
-  static const String vehicleFuelLevel = "Vehicle.Powertrain.FuelSystem.Level";
+  static const String vehicleFuelLevel = "Vehicle.Powertrain.FuelSystem.RelativeLevel";
 
   static const String vehicleCoolantTemp =
       "Vehicle.Powertrain.CombustionEngine.ECT";
@@ -32,7 +32,7 @@ class VSSPath {
 
   static const String vehicleHazardLightOn = "Vehicle.Body.Lights.Hazard.IsSignaling";
 
-  static const String vehicleTravelledDistance = "Vehicle.TravelledDistance";
+  static const String vehicleTravelledDistance = "Vehicle.TraveledDistance";
 
   static const String vehicleTrunkLocked = "Vehicle.Body.Trunk.Rear.IsLocked";
 
