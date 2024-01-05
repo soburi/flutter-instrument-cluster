@@ -35,6 +35,7 @@ class DashboardVssClient extends VssClient {
       VSSPath.vehicleCruiseControlActive,
       VSSPath.vehicleBatteryChargingStatus,
       VSSPath.vehicleDistanceUnit,
+      VSSPath.vehicleTemperatureUnit,
       VSSPath.steeringCruiseEnable,
       VSSPath.steeringCruiseSet,
       VSSPath.steeringCruiseResume,
@@ -140,9 +141,9 @@ class DashboardVssClient extends VssClient {
           vehicleStatus.update(performanceMode: update.entry.value.string);
         }
         break;
-      case VSSPath.vehicleTravelledDistance:
+      case VSSPath.vehicleTraveledDistance:
         if (update.entry.value.hasFloat()) {
-          vehicleStatus.update(travelledDistance: update.entry.value.float);
+          vehicleStatus.update(traveledDistance: update.entry.value.float);
         }
         break;
       case VSSPath.vehicleTrunkLocked:
@@ -182,7 +183,18 @@ class DashboardVssClient extends VssClient {
         break;
       case VSSPath.vehicleDistanceUnit:
         if (update.entry.value.hasString()) {
-          vehicleStatus.update(vehicleDistanceUnit: update.entry.value.string);
+          DistanceUnit unit = DistanceUnit.kilometers;
+          if (update.entry.value.string == "MILES")
+            unit = DistanceUnit.miles;
+          vehicleStatus.update(distanceUnit: unit);
+        }
+        break;
+      case VSSPath.vehicleTemperatureUnit:
+        if (update.entry.value.hasString()) {
+          TemperatureUnit unit = TemperatureUnit.celsius;
+          if (update.entry.value.string == "F")
+            unit = TemperatureUnit.fahrenheit;
+          vehicleStatus.update(temperatureUnit: unit);
         }
         break;
 

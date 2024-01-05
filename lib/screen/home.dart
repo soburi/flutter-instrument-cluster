@@ -67,6 +67,15 @@ class _HomeState extends ConsumerState<Home> {
     final String performanceMode = ref.watch(vehicleStatusProvider.select((p) => p.performanceMode));
     final String selectedGear = ref.watch(vehicleStatusProvider.select((p) => p.selectedGear));
     final double ambientAirTemp = ref.watch(vehicleStatusProvider.select((p) => p.ambientAirTemp));
+    final TemperatureUnit tempUnit = ref.watch(vehicleStatusProvider.select((p) => p.temperatureUnit));
+
+    String ambientAirTempString = "";
+    if (tempUnit == TemperatureUnit.celsius) {
+      ambientAirTempString += "${ambientAirTemp.toStringAsFixed(0)} ${"\u00B0"}C";
+    } else {
+      ambientAirTempString += "${((ambientAirTemp * 9 / 5) + 32).toStringAsFixed(0)} ${"\u00B0"}F";
+    }
+
     final clock = ref.watch(clockProvider);
     final windowHeight = MediaQuery.of(context).size.height;
     final windowWidth = MediaQuery.of(context).size.width;
@@ -105,8 +114,8 @@ class _HomeState extends ConsumerState<Home> {
                       children: [
                         TurnSignal(
                           screenHeight: screenHeight,
-                          isLefton: isLeftIndicator,
-                          isRighton: isRightIndicator,
+                          isLeftOn: isLeftIndicator,
+                          isRightOn: isRightIndicator,
                         ),
                         Flex(
                           direction: Axis.horizontal,
@@ -146,7 +155,7 @@ class _HomeState extends ConsumerState<Home> {
                                       SizedBox(
                                           width: (30 * screenHeight) / 480),
                                       Text(
-                                        "${ambientAirTemp} ${"\u00B0"}C",
+                                        ambientAirTempString,
                                         style: TextStyle(
                                             color: const Color.fromARGB(
                                                 255, 184, 183, 183),

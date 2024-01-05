@@ -2,6 +2,9 @@
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+enum DistanceUnit { kilometers, miles }
+enum TemperatureUnit { celsius, fahrenheit }
+
 class VehicleStatus {
   VehicleStatus({
     required this.speed,
@@ -14,7 +17,7 @@ class VehicleStatus {
     required this.isLowBeam,
     required this.isHighBeam,
     required this.isHazardLightOn,
-    required this.travelledDistance,
+    required this.traveledDistance,
     required this.isParkingOn,
     required this.performanceMode,
     required this.ambientAirTemp,
@@ -25,9 +28,9 @@ class VehicleStatus {
     required this.isTrunkLocked,
     required this.isTrunkOpen,
     required this.isBatteryCharging,
-
-    // steering switches
-    required this.vehicleDistanceUnit,
+    required this.distanceUnit,
+    required this.temperatureUnit,
+    // Steering wheel switches
     required this.isSteeringCruiseEnable,
     required this.isSteeringCruiseSet,
     required this.isSteeringCruiseResume,
@@ -56,9 +59,11 @@ class VehicleStatus {
   final bool isCruiseControlActive;
   final bool isCruiseControlError;
   final bool isBatteryCharging;
-  final double travelledDistance;
+  final double traveledDistance;
+  final DistanceUnit distanceUnit;
+  final TemperatureUnit temperatureUnit;
 
-  final String vehicleDistanceUnit;
+  // Steering wheel switches
   final bool isSteeringCruiseEnable;
   final bool isSteeringCruiseSet;
   final bool isSteeringCruiseResume;
@@ -86,10 +91,11 @@ class VehicleStatus {
     bool? isCruiseControlError,
     bool? isCruiseControlActive,
     bool? isBatteryCharging,
-    double? travelledDistance,
+    double? traveledDistance,
     double? cruiseControlSpeed,
-    // Steering
-    String? vehicleDistanceUnit,
+    DistanceUnit? distanceUnit,
+    TemperatureUnit? temperatureUnit,
+    // Steering wheel switches
     bool? isSteeringCruiseEnable,
     bool? isSteeringCruiseSet,
     bool? isSteeringCruiseResume,
@@ -108,7 +114,9 @@ class VehicleStatus {
       isLowBeam: isLowBeam ?? this.isLowBeam,
       isHighBeam: isHighBeam ?? this.isHighBeam,
       isHazardLightOn: isHazardLightOn ?? this.isHazardLightOn,
-      travelledDistance: travelledDistance ?? this.travelledDistance,
+      traveledDistance: traveledDistance ?? this.traveledDistance,
+      distanceUnit: distanceUnit ?? this.distanceUnit,
+      temperatureUnit: temperatureUnit ?? this.temperatureUnit,
       isParkingOn: isParkingOn ?? this.isParkingOn,
       performanceMode: performanceMode ?? this.performanceMode,
       isTrunkLocked: isTrunkLocked ?? this.isTrunkLocked,
@@ -130,7 +138,6 @@ class VehicleStatus {
       isSteeringInfo: isSteeringInfo ?? this.isSteeringInfo,
       isSteeringLaneWarning:
           isSteeringLaneWarning ?? this.isSteeringLaneWarning,
-      vehicleDistanceUnit: vehicleDistanceUnit ?? this.vehicleDistanceUnit,
     );
   }
 }
@@ -155,7 +162,7 @@ class VehicleStatusNotifier extends StateNotifier<VehicleStatus> {
     isHighBeam: true,
     isLowBeam: false,
     isParkingOn: true,
-    travelledDistance: 888,
+    traveledDistance: 888,
     ambientAirTemp: 25,
     cruiseControlSpeed: 60,
     isCruiseControlActive: false,
@@ -164,13 +171,14 @@ class VehicleStatusNotifier extends StateNotifier<VehicleStatus> {
     isTrunkLocked: true,
     isTrunkOpen: false,
     isBatteryCharging: true,
+    distanceUnit: DistanceUnit.kilometers,
+    temperatureUnit: TemperatureUnit.celsius,
     isSteeringCruiseEnable: false,
     isSteeringCruiseSet: false,
     isSteeringCruiseResume: false,
     isSteeringCruiseCancel: false,
     isSteeringInfo: false,
     isSteeringLaneWarning: false,
-    vehicleDistanceUnit: 'km',
   );
   void update({
     double? speed,
@@ -192,10 +200,11 @@ class VehicleStatusNotifier extends StateNotifier<VehicleStatus> {
     bool? isCruiseControlActive,
     bool? isCruiseControlError,
     bool? isBatteryCharging,
-    double? travelledDistance,
+    double? traveledDistance,
     double? cruiseControlSpeed,
-    //
-    String? vehicleDistanceUnit,
+    DistanceUnit? distanceUnit,
+    TemperatureUnit? temperatureUnit,
+    // Steering wheel switches
     bool? isSteeringCruiseEnable,
     bool? isSteeringCruiseSet,
     bool? isSteeringCruiseResume,
@@ -214,7 +223,7 @@ class VehicleStatusNotifier extends StateNotifier<VehicleStatus> {
       isLowBeam: isLowBeam,
       isHighBeam: isHighBeam,
       isHazardLightOn: isHazardLightOn,
-      travelledDistance: travelledDistance,
+      traveledDistance: traveledDistance,
       performanceMode: performanceMode,
       isParkingOn: isParkingOn,
       isTrunkOpen: isTrunkOpen,
@@ -225,14 +234,15 @@ class VehicleStatusNotifier extends StateNotifier<VehicleStatus> {
       isCruiseControlError: isCruiseControlError,
       cruiseControlSpeed: cruiseControlSpeed,
       isBatteryCharging: isBatteryCharging,
-      //
+      distanceUnit: distanceUnit,
+      temperatureUnit: temperatureUnit,
+      // Steering wheel switches
       isSteeringCruiseEnable: isSteeringCruiseEnable,
       isSteeringCruiseSet: isSteeringCruiseSet,
       isSteeringCruiseResume: isSteeringCruiseResume,
       isSteeringCruiseCancel: isSteeringCruiseCancel,
       isSteeringInfo: isSteeringInfo,
       isSteeringLaneWarning: isSteeringLaneWarning,
-      vehicleDistanceUnit: vehicleDistanceUnit,
     );
   }
 }

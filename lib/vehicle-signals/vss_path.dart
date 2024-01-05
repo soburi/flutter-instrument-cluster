@@ -32,7 +32,7 @@ class VSSPath {
 
   static const String vehicleHazardLightOn = "Vehicle.Body.Lights.Hazard.IsSignaling";
 
-  static const String vehicleTravelledDistance = "Vehicle.TraveledDistance";
+  static const String vehicleTraveledDistance = "Vehicle.TraveledDistance";
 
   static const String vehicleTrunkLocked = "Vehicle.Body.Trunk.Rear.IsLocked";
 
@@ -76,6 +76,9 @@ class VSSPath {
 
   static const String vehicleDistanceUnit =
       "Vehicle.Cabin.Infotainment.HMI.DistanceUnit";
+
+  static const String vehicleTemperatureUnit =
+      "Vehicle.Cabin.Infotainment.HMI.TemperatureUnit";
 
   static const String vehicleCurrLat = "Vehicle.CurrentLocation.Latitude";
 

@@ -16,12 +16,12 @@ class SpeedGauge extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final double speed = ref.watch(vehicleStatusProvider.select((p) => p.speed));
-    final String units = ref.watch(vehicleStatusProvider.select((p) => p.vehicleDistanceUnit));
+    final DistanceUnit unit = ref.watch(vehicleStatusProvider.select((p) => p.distanceUnit));
 
     const double minSpeed = 0;
     const double maxSpeed = 240;
     const Duration sweepDuration = Duration(milliseconds: 200);
-    double speedScaling = (units == "mi") ? 0.621504 : 1.0;
+    double speedScaling = (unit == DistanceUnit.miles) ? 0.621504 : 1.0;
 
     final animationController = useAnimationController(
       lowerBound: minSpeed,
@@ -39,7 +39,7 @@ class SpeedGauge extends HookConsumerWidget {
               low: minSpeed,
               high: maxSpeed,
               mainValue: animationController.value,
-              label: (units == "mi") ? "mph" : "Km/h",
+              label: (unit == DistanceUnit.miles) ? "mph" : "km/h",
               zeroTickLabel: minSpeed.toInt().toString(),
               maxTickLabel: maxSpeed.toInt().toString(),
               inPrimaryColor: gaugeColor?.inPrimary,

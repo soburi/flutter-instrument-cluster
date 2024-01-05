@@ -6,13 +6,13 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class TurnSignal extends HookConsumerWidget {
   final double screenHeight;
-  final bool isLefton;
-  final bool isRighton;
+  final bool isLeftOn;
+  final bool isRightOn;
   const TurnSignal({
     Key? key,
     required this.screenHeight,
-    required this.isLefton,
-    required this.isRighton,
+    required this.isLeftOn,
+    required this.isRightOn,
   }) : super(key: key);
   double calcPadding(double value, double height) {
     // values wrt to values at 720 height
@@ -38,7 +38,7 @@ class TurnSignal extends HookConsumerWidget {
               children: [
                 Image.asset(
                   "images/left.png",
-                  color: (isLefton)
+                  color: (isLeftOn)
                       ? Color.lerp(
                           Colors.black,
                           const Color.fromARGB(255, 99, 251, 104),
@@ -48,7 +48,7 @@ class TurnSignal extends HookConsumerWidget {
                 ),
                 Image.asset(
                   "images/right.png",
-                  color: (isRighton)
+                  color: (isRightOn)
                       ? Color.lerp(
                           Colors.black,
                           const Color.fromARGB(255, 99, 251, 104),
