@@ -83,7 +83,7 @@ final kuksaConfigProvider = Provider((ref) {
 
     String tls_server_name = "";
     if (yamlMap.containsKey('tls-server-name')) {
-      tls_server_name = yamlMap['tls_server_name'];
+      tls_server_name = yamlMap['tls-server-name'];
     }
 
     return KuksaConfig(
