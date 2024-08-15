@@ -40,7 +40,7 @@ class VehicleStatus {
   });
 
   final double speed;
-  final double rpm;
+  final int rpm;
   final double fuelLevel;
   final double coolantTemp;
   final double cruiseControlSpeed;
@@ -73,7 +73,7 @@ class VehicleStatus {
 
   VehicleStatus copyWith({
     double? speed,
-    double? rpm,
+    int? rpm,
     double? fuelLevel,
     double? coolantTemp,
     bool? isLeftIndicator,
@@ -182,7 +182,7 @@ class VehicleStatusNotifier extends StateNotifier<VehicleStatus> {
   );
   void update({
     double? speed,
-    double? rpm,
+    int? rpm,
     double? fuelLevel,
     double? coolantTemp,
     bool? isLeftIndicator,

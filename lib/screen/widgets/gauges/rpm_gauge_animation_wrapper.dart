@@ -16,7 +16,7 @@ class RPMGauge extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final double rpm = ref.watch(vehicleStatusProvider.select((p) => p.rpm));
+    final int rpm = ref.watch(vehicleStatusProvider.select((p) => p.rpm));
 
     const double minRPM = 0;
     const double maxRPM = 8000;
@@ -25,7 +25,7 @@ class RPMGauge extends HookConsumerWidget {
     final animationController = useAnimationController(
       lowerBound: minRPM,
       upperBound: maxRPM,
-    )..animateTo(rpm,
+    )..animateTo(rpm.toDouble(),
         duration: sweepDuration, curve: Curves.linearToEaseOut);
     return AnimatedBuilder(
         animation: animationController,
@@ -38,8 +38,8 @@ class RPMGauge extends HookConsumerWidget {
               high: maxRPM,
               mainValue: animationController.value,
               label: "rpm",
-              zeroTickLabel: minRPM.toInt().toString(),
-              maxTickLabel: maxRPM.toInt().toString(),
+              zeroTickLabel: minRPM.toString(),
+              maxTickLabel: maxRPM.toString(),
               inPrimaryColor: gaugeColor?.inPrimary,
               outPrimaryColor: gaugeColor?.outPrimary,
               secondaryColor: gaugeColor?.secondary,

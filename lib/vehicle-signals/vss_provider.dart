@@ -71,8 +71,8 @@ class DashboardVssClient extends VssClient {
         }
         break;
       case VSSPath.vehicleEngineRPM:
-        if (update.entry.value.hasFloat()) {
-          vehicleStatus.update(rpm: update.entry.value.float);
+        if (update.entry.value.hasUint32()) {
+          vehicleStatus.update(rpm: update.entry.value.uint32);
         }
         break;
       case VSSPath.vehicleFuelLevel:
