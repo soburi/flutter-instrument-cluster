@@ -17,8 +17,13 @@ class KuksaConfig {
   static int defaultPort = 55555;
   static String defaultCaCertPath = '/etc/kuksa-val/CA.pem';
 
-  KuksaConfig({required this.hostname, required this.port, required this.authorization,
-    required this.use_tls, required this.ca_certificate, required this.tls_server_name});
+  KuksaConfig(
+      {required this.hostname,
+      required this.port,
+      required this.authorization,
+      required this.use_tls,
+      required this.ca_certificate,
+      required this.tls_server_name});
 }
 
 // NOTE: This may need to be changed to a FutureProvider to avoid slowing
@@ -49,7 +54,7 @@ final kuksaConfigProvider = Provider((ref) {
           debugPrint("Reading authorization token $s");
           try {
             token = File(s).readAsStringSync();
-          } on Exception catch(_) {
+          } on Exception catch (_) {
             print("ERROR: Could not read authorization token file $token");
             token = "";
           }
@@ -63,8 +68,7 @@ final kuksaConfigProvider = Provider((ref) {
     bool use_tls = false;
     if (yamlMap.containsKey('use-tls')) {
       var value = yamlMap['use-tls'];
-      if (value is bool)
-        use_tls = value;
+      if (value is bool) use_tls = value;
     }
     //debugPrint("Use TLS = $use_tls");
 
@@ -75,7 +79,7 @@ final kuksaConfigProvider = Provider((ref) {
     }
     try {
       ca_cert = File(ca_path).readAsBytesSync();
-    } on Exception catch(_) {
+    } on Exception catch (_) {
       print("ERROR: Could not read CA certificate file $ca_path");
       ca_cert = [];
     }
@@ -87,22 +91,19 @@ final kuksaConfigProvider = Provider((ref) {
     }
 
     return KuksaConfig(
-          hostname: hostname,
-          port: port,
-          authorization: token,
-          use_tls: use_tls,
-          ca_certificate: ca_cert,
-          tls_server_name: tls_server_name
-        );
-  } on Exception catch(_) {
+        hostname: hostname,
+        port: port,
+        authorization: token,
+        use_tls: use_tls,
+        ca_certificate: ca_cert,
+        tls_server_name: tls_server_name);
+  } on Exception catch (_) {
     return KuksaConfig(
-          hostname: KuksaConfig.defaultHostname,
-          port: KuksaConfig.defaultPort,
-          authorization: "",
-          use_tls: false,
-          ca_certificate: [],
-          tls_server_name: ""
-        );
+        hostname: KuksaConfig.defaultHostname,
+        port: KuksaConfig.defaultPort,
+        authorization: "",
+        use_tls: false,
+        ca_certificate: [],
+        tls_server_name: "");
   }
 });
-

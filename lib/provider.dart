@@ -78,7 +78,11 @@ double calculateDistance(point1, point2) {
   double halfCosLatDiff = cos((point2.latitude - point1.latitude) * p) / 2;
   double halfCosLngDiff = cos((point2.longitude - point1.longitude) * p) / 2;
 
-  double dist = 0.5 - halfCosLatDiff + cos(point1.latitude * p) * cos(point2.latitude * p) * (0.5 - halfCosLngDiff);
+  double dist = 0.5 -
+      halfCosLatDiff +
+      cos(point1.latitude * p) *
+          cos(point2.latitude * p) *
+          (0.5 - halfCosLngDiff);
 
   return 12742 * asin(sqrt(dist));
 }

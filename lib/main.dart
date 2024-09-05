@@ -1,6 +1,5 @@
 // SPDX-License-Identifier: Apache-2.0
 
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_cluster_dashboard/screen/home.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';

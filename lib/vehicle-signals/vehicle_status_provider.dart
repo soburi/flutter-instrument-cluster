@@ -3,6 +3,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 enum DistanceUnit { kilometers, miles }
+
 enum TemperatureUnit { celsius, fahrenheit }
 
 class VehicleStatus {

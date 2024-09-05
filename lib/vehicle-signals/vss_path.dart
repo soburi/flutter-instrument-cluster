@@ -6,7 +6,8 @@ class VSSPath {
   static const String vehicleEngineRPM =
       "Vehicle.Powertrain.CombustionEngine.Speed";
 
-  static const String vehicleFuelLevel = "Vehicle.Powertrain.FuelSystem.RelativeLevel";
+  static const String vehicleFuelLevel =
+      "Vehicle.Powertrain.FuelSystem.RelativeLevel";
 
   static const String vehicleCoolantTemp =
       "Vehicle.Powertrain.CombustionEngine.ECT";
@@ -28,16 +29,18 @@ class VSSPath {
 
   static const String vehicleHighBeamOn = "Vehicle.Body.Lights.Beam.High.IsOn";
 
-  static const String vehicleParkingLightOn = "Vehicle.Body.Lights.Parking.IsOn";
+  static const String vehicleParkingLightOn =
+      "Vehicle.Body.Lights.Parking.IsOn";
 
-  static const String vehicleHazardLightOn = "Vehicle.Body.Lights.Hazard.IsSignaling";
+  static const String vehicleHazardLightOn =
+      "Vehicle.Body.Lights.Hazard.IsSignaling";
 
   static const String vehicleTraveledDistance = "Vehicle.TraveledDistance";
 
   static const String vehicleTrunkLocked = "Vehicle.Body.Trunk.Rear.IsLocked";
 
   static const String vehicleTrunkOpen = "Vehicle.Body.Trunk.Rear.IsOpen";
-  
+
   // \"normal\",\"sport\",\"economy\",\"snow\",\"rain\"]
   static const String vehiclePerformanceMode =
       "Vehicle.Powertrain.Transmission.PerformanceMode";

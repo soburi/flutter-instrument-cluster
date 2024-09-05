@@ -1,11 +1,8 @@
 // SPDX-License-Identifier: Apache-2.0
-import 'dart:io';
-import 'package:meta/meta.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:grpc/grpc.dart';
 import 'package:flutter_cluster_dashboard/generated/kuksa/val/v1/val.pbgrpc.dart';
-import 'package:flutter_cluster_dashboard/generated/kuksa/val/v1/types.pb.dart';
 import 'package:flutter_cluster_dashboard/config.dart';
 import 'package:flutter_cluster_dashboard/vehicle-signals/vss_client.dart';
 import 'package:flutter_cluster_dashboard/vehicle-signals/vss_path.dart';
@@ -14,37 +11,41 @@ import 'package:flutter_cluster_dashboard/vehicle-signals/vehicle_status_provide
 class DashboardVssClient extends VssClient {
   @override
   final List<String> signals = [
-      VSSPath.vehicleSpeed,
-      VSSPath.vehicleEngineRPM,
-      VSSPath.vehicleFuelLevel,
-      VSSPath.vehicleCoolantTemp,
-      VSSPath.vehicleAmbientAirTemperature,
-      VSSPath.vehicleLeftIndicator,
-      VSSPath.vehicleRightIndicator,
-      VSSPath.vehicleHazardLightOn,
-      VSSPath.vehicleHighBeamOn,
-      VSSPath.vehicleLowBeamOn,
-      VSSPath.vehicleSelectedGear,
-      VSSPath.vehiclePerformanceMode,
-      VSSPath.vehicleParkingLightOn,
-      VSSPath.vehicleTrunkLocked,
-      VSSPath.vehicleTrunkOpen,
-      VSSPath.vehicleMIL,
-      VSSPath.vehicleCruiseControlError,
-      VSSPath.vehicleCruiseControlSpeedSet,
-      VSSPath.vehicleCruiseControlActive,
-      VSSPath.vehicleBatteryChargingStatus,
-      VSSPath.vehicleDistanceUnit,
-      VSSPath.vehicleTemperatureUnit,
-      VSSPath.steeringCruiseEnable,
-      VSSPath.steeringCruiseSet,
-      VSSPath.steeringCruiseResume,
-      VSSPath.steeringCruiseCancel,
-      VSSPath.steeringInfo,
-      VSSPath.steeringLaneDepWarn
-    ];
+    VSSPath.vehicleSpeed,
+    VSSPath.vehicleEngineRPM,
+    VSSPath.vehicleFuelLevel,
+    VSSPath.vehicleCoolantTemp,
+    VSSPath.vehicleAmbientAirTemperature,
+    VSSPath.vehicleLeftIndicator,
+    VSSPath.vehicleRightIndicator,
+    VSSPath.vehicleHazardLightOn,
+    VSSPath.vehicleHighBeamOn,
+    VSSPath.vehicleLowBeamOn,
+    VSSPath.vehicleSelectedGear,
+    VSSPath.vehiclePerformanceMode,
+    VSSPath.vehicleParkingLightOn,
+    VSSPath.vehicleTrunkLocked,
+    VSSPath.vehicleTrunkOpen,
+    VSSPath.vehicleMIL,
+    VSSPath.vehicleCruiseControlError,
+    VSSPath.vehicleCruiseControlSpeedSet,
+    VSSPath.vehicleCruiseControlActive,
+    VSSPath.vehicleBatteryChargingStatus,
+    VSSPath.vehicleDistanceUnit,
+    VSSPath.vehicleTemperatureUnit,
+    VSSPath.steeringCruiseEnable,
+    VSSPath.steeringCruiseSet,
+    VSSPath.steeringCruiseResume,
+    VSSPath.steeringCruiseCancel,
+    VSSPath.steeringInfo,
+    VSSPath.steeringLaneDepWarn
+  ];
 
-  DashboardVssClient({required super.config, required super.channel, required super.stub, required super.ref});
+  DashboardVssClient(
+      {required super.config,
+      required super.channel,
+      required super.stub,
+      required super.ref});
 
   static String? numToGear(int? number) {
     switch (number) {
@@ -163,7 +164,8 @@ class DashboardVssClient extends VssClient {
         break;
       case VSSPath.vehicleCruiseControlError:
         if (update.entry.value.hasBool_12()) {
-          vehicleStatus.update(isCruiseControlError: update.entry.value.bool_12);
+          vehicleStatus.update(
+              isCruiseControlError: update.entry.value.bool_12);
         }
         break;
       case VSSPath.vehicleCruiseControlSpeedSet:
@@ -173,7 +175,8 @@ class DashboardVssClient extends VssClient {
         break;
       case VSSPath.vehicleCruiseControlActive:
         if (update.entry.value.hasBool_12()) {
-          vehicleStatus.update(isCruiseControlActive: update.entry.value.bool_12);
+          vehicleStatus.update(
+              isCruiseControlActive: update.entry.value.bool_12);
         }
         break;
       case VSSPath.vehicleBatteryChargingStatus:
@@ -184,8 +187,7 @@ class DashboardVssClient extends VssClient {
       case VSSPath.vehicleDistanceUnit:
         if (update.entry.value.hasString()) {
           DistanceUnit unit = DistanceUnit.kilometers;
-          if (update.entry.value.string == "MILES")
-            unit = DistanceUnit.miles;
+          if (update.entry.value.string == "MILES") unit = DistanceUnit.miles;
           vehicleStatus.update(distanceUnit: unit);
         }
         break;
@@ -266,17 +268,19 @@ final vssClientProvider = Provider((ref) {
   if (config.use_tls && config.ca_certificate.isNotEmpty) {
     print("Using TLS");
     if (config.tls_server_name.isNotEmpty)
-      creds = ChannelCredentials.secure(certificates: config.ca_certificate, authority: config.tls_server_name);
+      creds = ChannelCredentials.secure(
+          certificates: config.ca_certificate,
+          authority: config.tls_server_name);
     else
       creds = ChannelCredentials.secure(certificates: config.ca_certificate);
   } else {
     creds = ChannelCredentials.insecure();
   }
   final channel = ClientChannel(config.hostname,
-          port: config.port,
-          options: ChannelOptions(credentials: creds));
+      port: config.port, options: ChannelOptions(credentials: creds));
 
   final stub = VALClient(channel);
 
-  return DashboardVssClient(config: config, channel: channel, stub: stub, ref: ref);
+  return DashboardVssClient(
+      config: config, channel: channel, stub: stub, ref: ref);
 });
