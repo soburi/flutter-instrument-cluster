@@ -379,10 +379,13 @@ class LidarMessageSender(object):
                 angle, distance = self.data[idx % count]
                 if self.verbose:
                     print(f'lidar angle = {angle} distance = {distance}')
-                angle_raw = int(angle / 0.1)
-                distance_raw = int(distance / 0.01)
-                data = struct.pack('<II', angle_raw, distance_raw)
-                self.can_sock.send(0x219, data, 0)
+                # Convert to raw 16-bit values according to the DBC:
+                # LIDAR_Angle    : 0.01 deg/bit
+                # LIDAR_Distance : 0.001 m/bit
+                angle_raw = int(angle / 0.01)
+                distance_raw = int(distance / 0.001)
+                data = struct.pack('<HH', angle_raw, distance_raw)
+                self.can_sock.send(0x680, data, 0)
                 idx += 1
 
             # Wait before next batch
