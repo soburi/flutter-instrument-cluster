@@ -1,34 +1,37 @@
-// SPDX-License-Identifier: Apache-2.0
-
+import 'dart:async';                           // StreamSubscription 用
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'lidar_state.dart';
 
-class LidarPoint {
-  /// Angle in degrees. Normalized to 0.1° increments between 0 and <360.
-  final double angle;
-  final double distance;
-
-  LidarPoint({required double angle, required this.distance})
-      : angle = (((angle % 360) * 10).round() / 10);
-}
-
-class LidarState {
-  final List<LidarPoint> points;
-  LidarState({required this.points});
-
-  LidarState copyWith({List<LidarPoint>? points}) {
-    return LidarState(points: points ?? this.points);
-  }
-}
-
-class LidarNotifier extends StateNotifier<LidarState> {
-  LidarNotifier() : super(LidarState(points: []));
-
-  /// Update the list of lidar points.
-  void update(List<LidarPoint> points) {
-    print(points);
-    //state = state.copyWith(points: points);
-  }
-}
-
+// ─────────────────────────────────────────────────────────────────────────────
+// Provider 定義
+// ─────────────────────────────────────────────────────────────────────────────
 final lidarProvider =
-    StateNotifierProvider<LidarNotifier, LidarState>((ref) => LidarNotifier());
+    StateNotifierProvider<LidarNotifier, LidarState>(
+  (ref) => LidarNotifier(),
+);
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Notifier 本体
+// ─────────────────────────────────────────────────────────────────────────────
+class LidarNotifier extends StateNotifier<LidarState> {
+  LidarNotifier() : super(const LidarState(points: []));
+
+  StreamSubscription<List<LidarPoint>>? _sub;
+
+  /// 外部ストリームを購読開始
+  void listenTo(Stream<List<LidarPoint>> stream) {
+    _sub?.cancel();               // 既存購読があれば解除
+    _sub = stream.listen(update);  // 新しい購読
+  }
+
+  /// State を更新
+  void update(List<LidarPoint> points) {
+    state = state.copyWith(points: points);
+  }
+
+  @override
+  void dispose() {
+    _sub?.cancel();
+    super.dispose();
+  }
+}

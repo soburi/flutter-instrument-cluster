@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 // Uses [LidarPoint] data quantized in 0.1° increments.
 import '../../lidar_provider.dart';
+import '../../lidar_state.dart';
 
 class LidarDisplay extends ConsumerWidget {
   final double maxDistance;

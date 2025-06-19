@@ -19,6 +19,26 @@ import 'package:flutter_cluster_dashboard/vehicle-signals/vss_client.dart';
 import 'package:flutter_cluster_dashboard/vehicle-signals/vss_provider.dart';
 import 'package:flutter_cluster_dashboard/vehicle-signals/vehicle_status_provider.dart';
 import 'package:intl/intl.dart';
+import 'dart:math';
+
+import '../../lidar_state.dart';
+
+Stream<List<LidarPoint>> getCanPointStream() {
+  final rng = Random();
+  return Stream.periodic(
+    const Duration(milliseconds: 200),
+    (_) {
+      return List.generate(
+        120,
+        (i) => LidarPoint(
+          angle: (i * 3) % 360,                 // 0,3,6,...357
+          distance: rng.nextDouble() * 65.535,  // 実デバイスのレンジに合わせる
+        ),
+      );
+    },
+  );
+}
+
 
 class Home extends ConsumerStatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -29,15 +49,18 @@ class Home extends ConsumerStatefulWidget {
 
 class _HomeState extends ConsumerState<Home> {
   late VssClient vss;
+  late final Stream<List<LidarPoint>> _canStream;
 
   @override
   void initState() {
     super.initState();
+    _canStream = getCanPointStream();  
 
     vss = ref.read(vssClientProvider);
     vss.run();
 
     // Sample LIDAR data with 0.1° resolution
+/*
     ref.read(lidarProvider.notifier).update([
       LidarPoint(angle: 0.2, distance: 5),
       LidarPoint(angle: 45.1, distance: 8),
@@ -45,6 +68,10 @@ class _HomeState extends ConsumerState<Home> {
       LidarPoint(angle: 135.7, distance: 7),
       LidarPoint(angle: 180.0, distance: 4),
     ]);
+*/
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      ref.read(lidarProvider.notifier).listenTo(_canStream);
+    });
   }
 
   GaugeColors? getGaugeColor(String mode) {
