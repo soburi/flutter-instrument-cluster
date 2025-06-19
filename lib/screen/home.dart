@@ -129,13 +129,6 @@ class _HomeState extends ConsumerState<Home> {
                           isLeftOn: isLeftIndicator,
                           isRightOn: isRightIndicator,
                         ),
-                        Align(
-                          alignment: Alignment.topCenter,
-                          child: LidarDisplay(
-                            maxDistance: 10,
-                            size: (80 * screenHeight) / 480,
-                          ),
-                        ),
                         Flex(
                           direction: Axis.horizontal,
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -334,6 +327,13 @@ class _HomeState extends ConsumerState<Home> {
                             ],
                           ),
                         )
+                        Align(
+                          alignment: Alignment.center,
+                          child: LidarDisplay(
+                            maxDistance: 10,
+                            size: (248 * screenHeight) / 480,
+                          ),
+                        ),
                       ],
                     ),
                   ),
