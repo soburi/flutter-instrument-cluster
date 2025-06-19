@@ -36,8 +36,7 @@ class DashboardVssClient extends VssClient {
     VSSPath.vehicleBatteryChargingStatus,
     VSSPath.vehicleDistanceUnit,
     VSSPath.vehicleTemperatureUnit,
-    VSSPath.lidarAngle,
-    VSSPath.lidarDistance,
+    for (var i = 0; i < 360; i++) VSSPath.lidarDistance(i),
     VSSPath.steeringCruiseEnable,
     VSSPath.steeringCruiseSet,
     VSSPath.steeringCruiseResume,
@@ -46,26 +45,22 @@ class DashboardVssClient extends VssClient {
     VSSPath.steeringLaneDepWarn
   ];
 
-  List<double>? _angles;
-  List<double>? _distances;
+  final List<double> _distances = List.filled(360, 0);
 
   void _publishLidarIfReady() {
-    if (_angles == null || _distances == null) return;
-    final int len = _angles!.length < _distances!.length
-        ? _angles!.length
-        : _distances!.length;
-    final points = <LidarPoint>[];
-    for (var i = 0; i < len; i++) {
-      points.add(LidarPoint(angle: _angles![i], distance: _distances![i]));
-    }
+    final points = List.generate(
+      360,
+      (i) => LidarPoint(angle: i.toDouble(), distance: _distances[i]),
+    );
     ref.read(lidarProvider.notifier).update(points);
   }
 
-  DashboardVssClient(
-      {required super.config,
-      required super.channel,
-      required super.stub,
-      required super.ref});
+  DashboardVssClient({
+    required super.config,
+    required super.channel,
+    required super.stub,
+    required super.ref,
+  });
 
   static String? numToGear(int? number) {
     switch (number) {
@@ -154,7 +149,8 @@ class DashboardVssClient extends VssClient {
       case VSSPath.vehicleSelectedGear:
         if (update.entry.value.hasInt32()) {
           vehicleStatus.update(
-              selectedGear: numToGear(update.entry.value.int32));
+            selectedGear: numToGear(update.entry.value.int32),
+          );
         }
         break;
       case VSSPath.vehiclePerformanceMode:
@@ -185,7 +181,8 @@ class DashboardVssClient extends VssClient {
       case VSSPath.vehicleCruiseControlError:
         if (update.entry.value.hasBool_12()) {
           vehicleStatus.update(
-              isCruiseControlError: update.entry.value.bool_12);
+            isCruiseControlError: update.entry.value.bool_12,
+          );
         }
         break;
       case VSSPath.vehicleCruiseControlSpeedSet:
@@ -196,7 +193,8 @@ class DashboardVssClient extends VssClient {
       case VSSPath.vehicleCruiseControlActive:
         if (update.entry.value.hasBool_12()) {
           vehicleStatus.update(
-              isCruiseControlActive: update.entry.value.bool_12);
+            isCruiseControlActive: update.entry.value.bool_12,
+          );
         }
         break;
       case VSSPath.vehicleBatteryChargingStatus:
@@ -217,20 +215,6 @@ class DashboardVssClient extends VssClient {
           if (update.entry.value.string == "F")
             unit = TemperatureUnit.fahrenheit;
           vehicleStatus.update(temperatureUnit: unit);
-        }
-        break;
-      case VSSPath.lidarAngle:
-        if (update.entry.value.hasFloat()) {                   // ← チェックを変更
-          final angle = update.entry.value.float;              // ← 単一値を取得
-          _angles = [angle];                                   // ← 長さ1の List に
-          _publishLidarIfReady();
-        }
-        break;
-      case VSSPath.lidarDistance:
-        if (update.entry.value.hasFloat()) {
-          final dist = update.entry.value.float;
-          _distances = [dist];
-          _publishLidarIfReady();
         }
         break;
       // Steering wheel switches
@@ -273,7 +257,8 @@ class DashboardVssClient extends VssClient {
         if (update.entry.value.hasBool_12()) {
           if (update.entry.value.bool_12) {
             vehicleStatus.update(
-                isSteeringInfo: !vehicleStatus.state.isSteeringInfo);
+              isSteeringInfo: !vehicleStatus.state.isSteeringInfo,
+            );
           }
         }
         break;
@@ -281,14 +266,29 @@ class DashboardVssClient extends VssClient {
         if (update.entry.value.hasBool_12()) {
           if (update.entry.value.bool_12) {
             vehicleStatus.update(
-                isSteeringLaneWarning:
-                    !(vehicleStatus.state.isSteeringLaneWarning));
+              isSteeringLaneWarning:
+                  !(vehicleStatus.state.isSteeringLaneWarning),
+            );
           }
         }
         break;
 
       default:
-        print("ERROR: Unexpected path ${update.entry.path}");
+        final path = update.entry.path;
+        if (path.startsWith(VSSPath.lidarDistancePrefix)) {
+          if (update.entry.value.hasFloat()) {
+            final idx = int.tryParse(
+                  path.substring(VSSPath.lidarDistancePrefix.length)) ??
+                -1;
+            if (idx >= 0 && idx < 360) {
+              _distances[idx] = update.entry.value.float;
+              _publishLidarIfReady();
+              break;
+            }
+          }
+        } else {
+          print("ERROR: Unexpected path ${update.entry.path}");
+        }
         break;
     }
   }
@@ -302,18 +302,26 @@ final vssClientProvider = Provider((ref) {
     print("Using TLS");
     if (config.tls_server_name.isNotEmpty)
       creds = ChannelCredentials.secure(
-          certificates: config.ca_certificate,
-          authority: config.tls_server_name);
+        certificates: config.ca_certificate,
+        authority: config.tls_server_name,
+      );
     else
       creds = ChannelCredentials.secure(certificates: config.ca_certificate);
   } else {
     creds = ChannelCredentials.insecure();
   }
-  final channel = ClientChannel(config.hostname,
-      port: config.port, options: ChannelOptions(credentials: creds));
+  final channel = ClientChannel(
+    config.hostname,
+    port: config.port,
+    options: ChannelOptions(credentials: creds),
+  );
 
   final stub = VALClient(channel);
 
   return DashboardVssClient(
-      config: config, channel: channel, stub: stub, ref: ref);
+    config: config,
+    channel: channel,
+    stub: stub,
+    ref: ref,
+  );
 });
