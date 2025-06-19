@@ -2,6 +2,7 @@
 
 import 'dart:async';
 import 'dart:math';
+import 'dart:ui';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:latlong2/latlong.dart';
 
@@ -86,3 +87,42 @@ double calculateDistance(point1, point2) {
 
   return 12742 * asin(sqrt(dist));
 }
+
+// -------------------------------------------------------------
+
+class LidarData {
+  final List<Offset> points;
+  final double? pendingAngle;
+  LidarData({required this.points, this.pendingAngle});
+
+  LidarData copyWith({List<Offset>? points, double? pendingAngle}) {
+    return LidarData(
+      points: points ?? this.points,
+      pendingAngle: pendingAngle,
+    );
+  }
+}
+
+class LidarNotifier extends StateNotifier<LidarData> {
+  LidarNotifier() : super(LidarData(points: [], pendingAngle: null));
+
+  void setAngle(double angle) {
+    state = state.copyWith(pendingAngle: angle);
+  }
+
+  void addDistance(double distance) {
+    if (state.pendingAngle != null) {
+      final angleRad = state.pendingAngle! * pi / 180;
+      final point = Offset(distance * cos(angleRad), distance * sin(angleRad));
+      final newPoints = [...state.points, point];
+      state = LidarData(points: newPoints, pendingAngle: null);
+    }
+  }
+
+  void clear() {
+    state = LidarData(points: [], pendingAngle: null);
+  }
+}
+
+final lidarProvider =
+    StateNotifierProvider<LidarNotifier, LidarData>((ref) => LidarNotifier());

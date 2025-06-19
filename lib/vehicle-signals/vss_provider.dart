@@ -7,6 +7,7 @@ import 'package:flutter_cluster_dashboard/config.dart';
 import 'package:flutter_cluster_dashboard/vehicle-signals/vss_client.dart';
 import 'package:flutter_cluster_dashboard/vehicle-signals/vss_path.dart';
 import 'package:flutter_cluster_dashboard/vehicle-signals/vehicle_status_provider.dart';
+import 'package:flutter_cluster_dashboard/provider.dart';
 
 class DashboardVssClient extends VssClient {
   @override
@@ -38,7 +39,9 @@ class DashboardVssClient extends VssClient {
     VSSPath.steeringCruiseResume,
     VSSPath.steeringCruiseCancel,
     VSSPath.steeringInfo,
-    VSSPath.steeringLaneDepWarn
+    VSSPath.steeringLaneDepWarn,
+    VSSPath.lidarAngle,
+    VSSPath.lidarDistance
   ];
 
   DashboardVssClient(
@@ -251,6 +254,18 @@ class DashboardVssClient extends VssClient {
                 isSteeringLaneWarning:
                     !(vehicleStatus.state.isSteeringLaneWarning));
           }
+        }
+        break;
+      case VSSPath.lidarAngle:
+        if (update.entry.value.hasFloat()) {
+          ref.read(lidarProvider.notifier)
+              .setAngle(update.entry.value.float);
+        }
+        break;
+      case VSSPath.lidarDistance:
+        if (update.entry.value.hasFloat()) {
+          ref.read(lidarProvider.notifier)
+              .addDistance(update.entry.value.float);
         }
         break;
 

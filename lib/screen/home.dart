@@ -13,6 +13,7 @@ import 'package:flutter_cluster_dashboard/screen/widgets/right_bar.dart';
 import 'package:flutter_cluster_dashboard/screen/widgets/gauges/speed_gauge_animation_wrapper.dart';
 import 'package:flutter_cluster_dashboard/screen/widgets/signals.dart';
 import 'package:flutter_cluster_dashboard/screen/widgets/turn_signal.dart';
+import 'package:flutter_cluster_dashboard/screen/widgets/lidar_view.dart';
 import 'package:flutter_cluster_dashboard/vehicle-signals/vss_client.dart';
 import 'package:flutter_cluster_dashboard/vehicle-signals/vss_provider.dart';
 import 'package:flutter_cluster_dashboard/vehicle-signals/vehicle_status_provider.dart';
@@ -313,6 +314,13 @@ class _HomeState extends ConsumerState<Home> {
                                     getGaugeColor(performanceMode),
                               ),
                             ],
+                          ),
+                        )
+                        Positioned.fill(
+                          child: Align(
+                            alignment: Alignment.center,
+                            child:
+                                LidarView(size: (150 * screenHeight) / 480),
                           ),
                         )
                       ],
