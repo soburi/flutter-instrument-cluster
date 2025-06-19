@@ -13,6 +13,8 @@ import 'package:flutter_cluster_dashboard/screen/widgets/right_bar.dart';
 import 'package:flutter_cluster_dashboard/screen/widgets/gauges/speed_gauge_animation_wrapper.dart';
 import 'package:flutter_cluster_dashboard/screen/widgets/signals.dart';
 import 'package:flutter_cluster_dashboard/screen/widgets/turn_signal.dart';
+import 'package:flutter_cluster_dashboard/screen/widgets/lidar_display.dart';
+import 'package:flutter_cluster_dashboard/lidar_provider.dart';
 import 'package:flutter_cluster_dashboard/vehicle-signals/vss_client.dart';
 import 'package:flutter_cluster_dashboard/vehicle-signals/vss_provider.dart';
 import 'package:flutter_cluster_dashboard/vehicle-signals/vehicle_status_provider.dart';
@@ -31,6 +33,15 @@ class _HomeState extends ConsumerState<Home> {
   initState() {
     vss = ref.read(vssClientProvider);
     vss.run();
+
+    // Sample LIDAR data with 0.1° resolution
+    ref.read(lidarProvider.notifier).update([
+      LidarPoint(angle: 0.2, distance: 5),
+      LidarPoint(angle: 45.1, distance: 8),
+      LidarPoint(angle: 90.4, distance: 6),
+      LidarPoint(angle: 135.7, distance: 7),
+      LidarPoint(angle: 180.0, distance: 4),
+    ]);
 
     super.initState();
   }
@@ -116,6 +127,13 @@ class _HomeState extends ConsumerState<Home> {
                           screenHeight: screenHeight,
                           isLeftOn: isLeftIndicator,
                           isRightOn: isRightIndicator,
+                        ),
+                        Align(
+                          alignment: Alignment.topCenter,
+                          child: LidarDisplay(
+                            maxDistance: 10,
+                            size: (80 * screenHeight) / 480,
+                          ),
                         ),
                         Flex(
                           direction: Axis.horizontal,
