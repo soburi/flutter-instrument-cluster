@@ -38,13 +38,15 @@ class _HomeState extends ConsumerState<Home> {
     vss.run();
 
     // Sample LIDAR data with 0.1° resolution
-    ref.read(lidarProvider.notifier).update([
-      LidarPoint(angle: 0.2, distance: 5),
-      LidarPoint(angle: 45.1, distance: 8),
-      LidarPoint(angle: 90.4, distance: 6),
-      LidarPoint(angle: 135.7, distance: 7),
-      LidarPoint(angle: 180.0, distance: 4),
-    ]);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      ref.read(lidarProvider.notifier).update([
+        LidarPoint(angle: 0.2, distance: 5),
+        LidarPoint(angle: 45.1, distance: 8),
+        LidarPoint(angle: 90.4, distance: 6),
+        LidarPoint(angle: 135.7, distance: 7),
+        LidarPoint(angle: 180.0, distance: 4),
+      ]);
+    });
   }
 
   GaugeColors? getGaugeColor(String mode) {
