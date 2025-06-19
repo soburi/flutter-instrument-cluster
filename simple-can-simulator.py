@@ -34,6 +34,7 @@ import struct
 import errno
 import threading
 import time
+import math
 
 class CANSocket(object):
     FORMAT = "<IB3x8s"
@@ -348,6 +349,45 @@ class StatusMessageSender(object):
             # Sleep 100 ms
             time.sleep(0.1)
 
+class LidarMessageSender(object):
+    """Periodically send batches of Lidar angle/distance pairs."""
+
+    def __init__(self, can_sock, verbose=False):
+        self.can_sock = can_sock
+        self.verbose = verbose
+        self.thread = threading.Thread(target=self.run, daemon=True)
+
+        # Pre-create one rotation of test data: 0-359 deg in 1 deg steps
+        self.data = []
+        for angle in range(360):
+            # Simple distance pattern for testing
+            distance = 5 + 2 * math.sin(math.radians(angle))
+            self.data.append((angle, distance))
+
+        # Each run() iteration sends 45 items from this table
+        self.batch_size = 45
+
+    def start(self):
+        self.thread.start()
+
+    def run(self):
+        idx = 0
+        count = len(self.data)
+        while True:
+            # Send a batch of points
+            for _ in range(self.batch_size):
+                angle, distance = self.data[idx % count]
+                if self.verbose:
+                    print(f'lidar angle = {angle} distance = {distance}')
+                angle_raw = int(angle / 0.1)
+                distance_raw = int(distance / 0.01)
+                data = struct.pack('<II', angle_raw, distance_raw)
+                self.can_sock.send(0x219, data, 0)
+                idx += 1
+
+            # Wait before next batch
+            time.sleep(0.1)
+
 def main():
     parser = argparse.ArgumentParser(description='Simple CAN vehicle simulator.')
     parser.add_argument('interface', type=str, help='interface name (e.g. vcan0)')
@@ -370,10 +410,12 @@ def main():
     print('Using {0}'.format(args.interface))
     sim = VehicleSimulator()
     status_sender = StatusMessageSender(can_sock, sim, args.verbose)
+    lidar_sender = LidarMessageSender(can_sock, args.verbose)
     diag_handler = DiagnosticMessageHandler(diag_can_sock, sim, args.verbose)
     steeringwheel_handler = SteeringWheelMessageHandler(steeringwheel_can_sock, sim, args.verbose)
     sim.start()
     status_sender.start()
+    lidar_sender.start()
     diag_handler.start()
     steeringwheel_handler.start()
     try:
