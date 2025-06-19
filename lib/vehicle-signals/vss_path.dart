@@ -92,4 +92,8 @@ class VSSPath {
 
   static const String vehicleDestLon =
       "Vehicle.Cabin.Infotainment.Navigation.DestinationSet.Longitude";
+
+  // LIDAR signals
+  static const String lidarAngles = "Vehicle.ADAS.Lidar.Angles";
+  static const String lidarDistances = "Vehicle.ADAS.Lidar.Distances";
 }
