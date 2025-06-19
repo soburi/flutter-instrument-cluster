@@ -7,6 +7,7 @@ import 'package:flutter_cluster_dashboard/config.dart';
 import 'package:flutter_cluster_dashboard/vehicle-signals/vss_client.dart';
 import 'package:flutter_cluster_dashboard/vehicle-signals/vss_path.dart';
 import 'package:flutter_cluster_dashboard/vehicle-signals/vehicle_status_provider.dart';
+import 'package:flutter_cluster_dashboard/lidar_provider.dart';
 
 class DashboardVssClient extends VssClient {
   @override
@@ -33,6 +34,8 @@ class DashboardVssClient extends VssClient {
     VSSPath.vehicleBatteryChargingStatus,
     VSSPath.vehicleDistanceUnit,
     VSSPath.vehicleTemperatureUnit,
+    VSSPath.lidarAngles,
+    VSSPath.lidarDistances,
     VSSPath.steeringCruiseEnable,
     VSSPath.steeringCruiseSet,
     VSSPath.steeringCruiseResume,
@@ -40,6 +43,21 @@ class DashboardVssClient extends VssClient {
     VSSPath.steeringInfo,
     VSSPath.steeringLaneDepWarn
   ];
+
+  List<double>? _angles;
+  List<double>? _distances;
+
+  void _publishLidarIfReady() {
+    if (_angles == null || _distances == null) return;
+    final int len = _angles!.length < _distances!.length
+        ? _angles!.length
+        : _distances!.length;
+    final points = <LidarPoint>[];
+    for (var i = 0; i < len; i++) {
+      points.add(LidarPoint(angle: _angles![i], distance: _distances![i]));
+    }
+    ref.read(lidarProvider.notifier).update(points);
+  }
 
   DashboardVssClient(
       {required super.config,
@@ -197,6 +215,18 @@ class DashboardVssClient extends VssClient {
           if (update.entry.value.string == "F")
             unit = TemperatureUnit.fahrenheit;
           vehicleStatus.update(temperatureUnit: unit);
+        }
+        break;
+      case VSSPath.lidarAngles:
+        if (update.entry.value.hasFloatArray()) {
+          _angles = List<double>.from(update.entry.value.floatArray.values);
+          _publishLidarIfReady();
+        }
+        break;
+      case VSSPath.lidarDistances:
+        if (update.entry.value.hasFloatArray()) {
+          _distances = List<double>.from(update.entry.value.floatArray.values);
+          _publishLidarIfReady();
         }
         break;
 

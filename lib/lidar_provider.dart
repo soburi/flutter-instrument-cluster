@@ -23,10 +23,10 @@ class LidarState {
 class LidarNotifier extends StateNotifier<LidarState> {
   LidarNotifier() : super(LidarState(points: []));
 
+  /// Update the list of lidar points.
   void update(List<LidarPoint> points) {
-    // Temporary debug output
-    // ignore: avoid_print
     print(points);
+    //state = state.copyWith(points: points);
   }
 }
 
