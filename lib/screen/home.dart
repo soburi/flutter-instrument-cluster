@@ -29,12 +29,13 @@ class Home extends ConsumerStatefulWidget {
 class _HomeState extends ConsumerState<Home> {
   late VssClient vss;
 
-  initState() {
+  @override
+  void initState() {
+    super.initState();
+
     vss = ref.read(vssClientProvider);
     vss.run();
 
-    super.initState();
-  }
 
   GaugeColors? getGaugeColor(String mode) {
     return (mode == "economy")
