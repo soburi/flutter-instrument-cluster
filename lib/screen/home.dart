@@ -30,7 +30,8 @@ class Home extends ConsumerStatefulWidget {
 class _HomeState extends ConsumerState<Home> {
   late VssClient vss;
 
-  initState() {
+  @override
+  void initState() {
     vss = ref.read(vssClientProvider);
     vss.run();
 
