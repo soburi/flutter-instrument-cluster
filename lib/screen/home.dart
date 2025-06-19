@@ -32,6 +32,8 @@ class _HomeState extends ConsumerState<Home> {
 
   @override
   void initState() {
+    super.initState();
+
     vss = ref.read(vssClientProvider);
     vss.run();
 
@@ -43,8 +45,6 @@ class _HomeState extends ConsumerState<Home> {
       LidarPoint(angle: 135.7, distance: 7),
       LidarPoint(angle: 180.0, distance: 4),
     ]);
-
-    super.initState();
   }
 
   GaugeColors? getGaugeColor(String mode) {
