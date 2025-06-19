@@ -315,7 +315,7 @@ class _HomeState extends ConsumerState<Home> {
                               ),
                             ],
                           ),
-                        )
+                        ),
                         Positioned.fill(
                           child: Align(
                             alignment: Alignment.center,
