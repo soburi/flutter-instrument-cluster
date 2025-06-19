@@ -25,8 +25,8 @@ class LidarNotifier extends StateNotifier<LidarState> {
 
   /// Update the list of lidar points.
   void update(List<LidarPoint> points) {
-    print(points);
-    //state = state.copyWith(points: points);
+    // Store a copy to avoid modification from outside of the provider.
+    state = state.copyWith(points: List<LidarPoint>.from(points));
   }
 }
 
