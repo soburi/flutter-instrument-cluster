@@ -36,8 +36,8 @@ class DashboardVssClient extends VssClient {
     VSSPath.vehicleBatteryChargingStatus,
     VSSPath.vehicleDistanceUnit,
     VSSPath.vehicleTemperatureUnit,
-    VSSPath.lidarAngles,
-    VSSPath.lidarDistances,
+    VSSPath.lidarAngle,
+    VSSPath.lidarDistance,
     VSSPath.steeringCruiseEnable,
     VSSPath.steeringCruiseSet,
     VSSPath.steeringCruiseResume,
@@ -219,19 +219,20 @@ class DashboardVssClient extends VssClient {
           vehicleStatus.update(temperatureUnit: unit);
         }
         break;
-      case VSSPath.lidarAngles:
-        if (update.entry.value.hasFloatArray()) {
-          _angles = List<double>.from(update.entry.value.floatArray.values);
+      case VSSPath.lidarAngle:
+        if (update.entry.value.hasFloat()) {                   // ← チェックを変更
+          final angle = update.entry.value.float;              // ← 単一値を取得
+          _angles = [angle];                                   // ← 長さ1の List に
           _publishLidarIfReady();
         }
         break;
-      case VSSPath.lidarDistances:
-        if (update.entry.value.hasFloatArray()) {
-          _distances = List<double>.from(update.entry.value.floatArray.values);
+      case VSSPath.lidarDistance:
+        if (update.entry.value.hasFloat()) {
+          final dist = update.entry.value.float;
+          _distances = [dist];
           _publishLidarIfReady();
         }
         break;
-
       // Steering wheel switches
       case VSSPath.steeringCruiseEnable:
         if (update.entry.value.hasBool_12()) {
