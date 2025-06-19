@@ -24,17 +24,17 @@ import 'dart:math';
 import '../../lidar_state.dart';
 
 Stream<List<LidarPoint>> getCanPointStream() {
-  final rng = Random();
+  int tick = 0;
   return Stream.periodic(
     const Duration(milliseconds: 200),
     (_) {
-      return List.generate(
-        120,
-        (i) => LidarPoint(
-          angle: (i * 3) % 360,                 // 0,3,6,...357
-          distance: rng.nextDouble() * 65.535,  // 実デバイスのレンジに合わせる
-        ),
-      );
+      final points = List.generate(360, (i) {
+        final ang = i.toDouble();
+        final dist = 5 + 5 * sin((i + tick) * pi / 180);
+        return LidarPoint(angle: ang, distance: dist);
+      });
+      tick = (tick + 1) % 360;
+      return points;
     },
   );
 }

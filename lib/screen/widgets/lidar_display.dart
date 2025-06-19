@@ -65,7 +65,8 @@ class _LidarPainter extends CustomPainter {
     final pointPaint = Paint()..color = Colors.green;
 
     for (final p in points) {
-      final r = (p.distance / maxDistance) * radius;
+      final rRatio = (p.distance / maxDistance).clamp(0.0, 1.0);
+      final r = rRatio * radius;
       final ang = p.angle * pi / 180;
       final offset = Offset(
         center.dx + r * cos(ang),
