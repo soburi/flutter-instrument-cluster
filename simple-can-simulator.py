@@ -386,8 +386,8 @@ class LidarMessageSender(object):
                 #   LIDAR_Distance : 0.001 m/bit
                 angle_raw = int(angle / 0.01)
                 distance_raw = int(distance / 0.001)
-                data = struct.pack('<HH', angle_raw, distance_raw)
-                self.can_sock.send(0x680, data, 0)
+                data = struct.pack('<H', distance_raw)
+                self.can_sock.send(0x680 + angle, data, 0)
                 self._idx += 1
 
             # Advance the phase for the next batch

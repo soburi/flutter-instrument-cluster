@@ -286,8 +286,9 @@ class DashboardVssClient extends VssClient {
               break;
             }
           }
+        } else {
+          print("ERROR: Unexpected path ${update.entry.path}");
         }
-        print("ERROR: Unexpected path ${update.entry.path}");
         break;
     }
   }
