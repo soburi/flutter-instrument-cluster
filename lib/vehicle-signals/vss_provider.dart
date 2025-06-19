@@ -276,12 +276,16 @@ class DashboardVssClient extends VssClient {
       default:
         final path = update.entry.path;
         if (path.startsWith(VSSPath.lidarDistancePrefix)) {
-          if (update.entry.value.hasFloat()) {
+          if (update.entry.value.hasFloat() ||
+              update.entry.value.hasDouble_18()) {
             final idx = int.tryParse(
                   path.substring(VSSPath.lidarDistancePrefix.length)) ??
                 -1;
             if (idx >= 0 && idx < 360) {
-              _distances[idx] = update.entry.value.float;
+              final distance = update.entry.value.hasFloat()
+                  ? update.entry.value.float
+                  : update.entry.value.double_18;
+              _distances[idx] = distance;
               _publishLidarIfReady();
               break;
             }
