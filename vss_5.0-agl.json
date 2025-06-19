@@ -275,6 +275,38 @@
             },
             "description": "Traction Control System signals.",
             "type": "branch"
+          },
+          "Lidar": {
+            "children": {
+              "Angles": {
+                "datatype": "float[]",
+                "dbc2vss": {
+                  "interval_ms": 100,
+                  "signal": "LidarAngles"
+                },
+                "description": "Array of lidar scan angles.",
+                "type": "sensor",
+                "unit": "degrees",
+                "vss2dbc": {
+                  "signal": "LidarAngles"
+                }
+              },
+              "Distances": {
+                "datatype": "float[]",
+                "dbc2vss": {
+                  "interval_ms": 100,
+                  "signal": "LidarDistances"
+                },
+                "description": "Array of lidar scan distances.",
+                "type": "sensor",
+                "unit": "m",
+                "vss2dbc": {
+                  "signal": "LidarDistances"
+                }
+              }
+            },
+            "description": "Lidar sensor data.",
+            "type": "branch"
           }
         },
         "description": "All Advanced Driver Assist Systems data.",

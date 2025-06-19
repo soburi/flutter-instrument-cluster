@@ -90,3 +90,7 @@ BO_ 184 ESP: 8 ESP
 
 BO_ 192 EPS_STATUS: 8 EPS
  SG_ EpsFaultLamp : 6|1@0+ (1,0) [0|1] ""  EPS
+
+BO_ 537 Lidar: 8 Vector__XXX
+ SG_ LidarAngles : 7|32@0+ (0.1,0) [0|360] "deg" Vector__XXX
+ SG_ LidarDistances : 39|32@0+ (0.01,0) [0|1000] "m" Vector__XXX
