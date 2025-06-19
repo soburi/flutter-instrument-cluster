@@ -9,6 +9,8 @@ import 'package:flutter_cluster_dashboard/vehicle-signals/vss_path.dart';
 import 'package:flutter_cluster_dashboard/vehicle-signals/vehicle_status_provider.dart';
 import 'package:flutter_cluster_dashboard/lidar_provider.dart';
 
+import '../../lidar_state.dart';
+
 class DashboardVssClient extends VssClient {
   @override
   final List<String> signals = [
