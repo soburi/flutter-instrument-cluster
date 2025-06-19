@@ -94,3 +94,724 @@ BO_ 192 EPS_STATUS: 8 EPS
 BO_ 1664 LIDAR_Point: 8 Vector_XXX
   SG_ LIDAR_Angle : 0|16@1+ (0.01,0) [0|35999.99] "deg" Vector_XXX
   SG_ LIDAR_Distance : 16|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+
+BO_ 1664 LIDAR_Dist0: 8 Vector_XXX
+ SG_ LIDAR_Distance0 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1665 LIDAR_Dist1: 8 Vector_XXX
+ SG_ LIDAR_Distance1 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1666 LIDAR_Dist2: 8 Vector_XXX
+ SG_ LIDAR_Distance2 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1667 LIDAR_Dist3: 8 Vector_XXX
+ SG_ LIDAR_Distance3 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1668 LIDAR_Dist4: 8 Vector_XXX
+ SG_ LIDAR_Distance4 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1669 LIDAR_Dist5: 8 Vector_XXX
+ SG_ LIDAR_Distance5 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1670 LIDAR_Dist6: 8 Vector_XXX
+ SG_ LIDAR_Distance6 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1671 LIDAR_Dist7: 8 Vector_XXX
+ SG_ LIDAR_Distance7 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1672 LIDAR_Dist8: 8 Vector_XXX
+ SG_ LIDAR_Distance8 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1673 LIDAR_Dist9: 8 Vector_XXX
+ SG_ LIDAR_Distance9 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1674 LIDAR_Dist10: 8 Vector_XXX
+ SG_ LIDAR_Distance10 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1675 LIDAR_Dist11: 8 Vector_XXX
+ SG_ LIDAR_Distance11 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1676 LIDAR_Dist12: 8 Vector_XXX
+ SG_ LIDAR_Distance12 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1677 LIDAR_Dist13: 8 Vector_XXX
+ SG_ LIDAR_Distance13 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1678 LIDAR_Dist14: 8 Vector_XXX
+ SG_ LIDAR_Distance14 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1679 LIDAR_Dist15: 8 Vector_XXX
+ SG_ LIDAR_Distance15 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1680 LIDAR_Dist16: 8 Vector_XXX
+ SG_ LIDAR_Distance16 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1681 LIDAR_Dist17: 8 Vector_XXX
+ SG_ LIDAR_Distance17 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1682 LIDAR_Dist18: 8 Vector_XXX
+ SG_ LIDAR_Distance18 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1683 LIDAR_Dist19: 8 Vector_XXX
+ SG_ LIDAR_Distance19 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1684 LIDAR_Dist20: 8 Vector_XXX
+ SG_ LIDAR_Distance20 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1685 LIDAR_Dist21: 8 Vector_XXX
+ SG_ LIDAR_Distance21 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1686 LIDAR_Dist22: 8 Vector_XXX
+ SG_ LIDAR_Distance22 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1687 LIDAR_Dist23: 8 Vector_XXX
+ SG_ LIDAR_Distance23 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1688 LIDAR_Dist24: 8 Vector_XXX
+ SG_ LIDAR_Distance24 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1689 LIDAR_Dist25: 8 Vector_XXX
+ SG_ LIDAR_Distance25 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1690 LIDAR_Dist26: 8 Vector_XXX
+ SG_ LIDAR_Distance26 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1691 LIDAR_Dist27: 8 Vector_XXX
+ SG_ LIDAR_Distance27 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1692 LIDAR_Dist28: 8 Vector_XXX
+ SG_ LIDAR_Distance28 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1693 LIDAR_Dist29: 8 Vector_XXX
+ SG_ LIDAR_Distance29 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1694 LIDAR_Dist30: 8 Vector_XXX
+ SG_ LIDAR_Distance30 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1695 LIDAR_Dist31: 8 Vector_XXX
+ SG_ LIDAR_Distance31 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1696 LIDAR_Dist32: 8 Vector_XXX
+ SG_ LIDAR_Distance32 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1697 LIDAR_Dist33: 8 Vector_XXX
+ SG_ LIDAR_Distance33 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1698 LIDAR_Dist34: 8 Vector_XXX
+ SG_ LIDAR_Distance34 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1699 LIDAR_Dist35: 8 Vector_XXX
+ SG_ LIDAR_Distance35 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1700 LIDAR_Dist36: 8 Vector_XXX
+ SG_ LIDAR_Distance36 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1701 LIDAR_Dist37: 8 Vector_XXX
+ SG_ LIDAR_Distance37 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1702 LIDAR_Dist38: 8 Vector_XXX
+ SG_ LIDAR_Distance38 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1703 LIDAR_Dist39: 8 Vector_XXX
+ SG_ LIDAR_Distance39 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1704 LIDAR_Dist40: 8 Vector_XXX
+ SG_ LIDAR_Distance40 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1705 LIDAR_Dist41: 8 Vector_XXX
+ SG_ LIDAR_Distance41 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1706 LIDAR_Dist42: 8 Vector_XXX
+ SG_ LIDAR_Distance42 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1707 LIDAR_Dist43: 8 Vector_XXX
+ SG_ LIDAR_Distance43 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1708 LIDAR_Dist44: 8 Vector_XXX
+ SG_ LIDAR_Distance44 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1709 LIDAR_Dist45: 8 Vector_XXX
+ SG_ LIDAR_Distance45 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1710 LIDAR_Dist46: 8 Vector_XXX
+ SG_ LIDAR_Distance46 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1711 LIDAR_Dist47: 8 Vector_XXX
+ SG_ LIDAR_Distance47 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1712 LIDAR_Dist48: 8 Vector_XXX
+ SG_ LIDAR_Distance48 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1713 LIDAR_Dist49: 8 Vector_XXX
+ SG_ LIDAR_Distance49 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1714 LIDAR_Dist50: 8 Vector_XXX
+ SG_ LIDAR_Distance50 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1715 LIDAR_Dist51: 8 Vector_XXX
+ SG_ LIDAR_Distance51 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1716 LIDAR_Dist52: 8 Vector_XXX
+ SG_ LIDAR_Distance52 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1717 LIDAR_Dist53: 8 Vector_XXX
+ SG_ LIDAR_Distance53 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1718 LIDAR_Dist54: 8 Vector_XXX
+ SG_ LIDAR_Distance54 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1719 LIDAR_Dist55: 8 Vector_XXX
+ SG_ LIDAR_Distance55 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1720 LIDAR_Dist56: 8 Vector_XXX
+ SG_ LIDAR_Distance56 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1721 LIDAR_Dist57: 8 Vector_XXX
+ SG_ LIDAR_Distance57 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1722 LIDAR_Dist58: 8 Vector_XXX
+ SG_ LIDAR_Distance58 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1723 LIDAR_Dist59: 8 Vector_XXX
+ SG_ LIDAR_Distance59 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1724 LIDAR_Dist60: 8 Vector_XXX
+ SG_ LIDAR_Distance60 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1725 LIDAR_Dist61: 8 Vector_XXX
+ SG_ LIDAR_Distance61 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1726 LIDAR_Dist62: 8 Vector_XXX
+ SG_ LIDAR_Distance62 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1727 LIDAR_Dist63: 8 Vector_XXX
+ SG_ LIDAR_Distance63 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1728 LIDAR_Dist64: 8 Vector_XXX
+ SG_ LIDAR_Distance64 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1729 LIDAR_Dist65: 8 Vector_XXX
+ SG_ LIDAR_Distance65 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1730 LIDAR_Dist66: 8 Vector_XXX
+ SG_ LIDAR_Distance66 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1731 LIDAR_Dist67: 8 Vector_XXX
+ SG_ LIDAR_Distance67 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1732 LIDAR_Dist68: 8 Vector_XXX
+ SG_ LIDAR_Distance68 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1733 LIDAR_Dist69: 8 Vector_XXX
+ SG_ LIDAR_Distance69 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1734 LIDAR_Dist70: 8 Vector_XXX
+ SG_ LIDAR_Distance70 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1735 LIDAR_Dist71: 8 Vector_XXX
+ SG_ LIDAR_Distance71 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1736 LIDAR_Dist72: 8 Vector_XXX
+ SG_ LIDAR_Distance72 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1737 LIDAR_Dist73: 8 Vector_XXX
+ SG_ LIDAR_Distance73 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1738 LIDAR_Dist74: 8 Vector_XXX
+ SG_ LIDAR_Distance74 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1739 LIDAR_Dist75: 8 Vector_XXX
+ SG_ LIDAR_Distance75 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1740 LIDAR_Dist76: 8 Vector_XXX
+ SG_ LIDAR_Distance76 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1741 LIDAR_Dist77: 8 Vector_XXX
+ SG_ LIDAR_Distance77 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1742 LIDAR_Dist78: 8 Vector_XXX
+ SG_ LIDAR_Distance78 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1743 LIDAR_Dist79: 8 Vector_XXX
+ SG_ LIDAR_Distance79 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1744 LIDAR_Dist80: 8 Vector_XXX
+ SG_ LIDAR_Distance80 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1745 LIDAR_Dist81: 8 Vector_XXX
+ SG_ LIDAR_Distance81 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1746 LIDAR_Dist82: 8 Vector_XXX
+ SG_ LIDAR_Distance82 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1747 LIDAR_Dist83: 8 Vector_XXX
+ SG_ LIDAR_Distance83 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1748 LIDAR_Dist84: 8 Vector_XXX
+ SG_ LIDAR_Distance84 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1749 LIDAR_Dist85: 8 Vector_XXX
+ SG_ LIDAR_Distance85 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1750 LIDAR_Dist86: 8 Vector_XXX
+ SG_ LIDAR_Distance86 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1751 LIDAR_Dist87: 8 Vector_XXX
+ SG_ LIDAR_Distance87 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1752 LIDAR_Dist88: 8 Vector_XXX
+ SG_ LIDAR_Distance88 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1753 LIDAR_Dist89: 8 Vector_XXX
+ SG_ LIDAR_Distance89 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1754 LIDAR_Dist90: 8 Vector_XXX
+ SG_ LIDAR_Distance90 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1755 LIDAR_Dist91: 8 Vector_XXX
+ SG_ LIDAR_Distance91 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1756 LIDAR_Dist92: 8 Vector_XXX
+ SG_ LIDAR_Distance92 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1757 LIDAR_Dist93: 8 Vector_XXX
+ SG_ LIDAR_Distance93 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1758 LIDAR_Dist94: 8 Vector_XXX
+ SG_ LIDAR_Distance94 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1759 LIDAR_Dist95: 8 Vector_XXX
+ SG_ LIDAR_Distance95 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1760 LIDAR_Dist96: 8 Vector_XXX
+ SG_ LIDAR_Distance96 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1761 LIDAR_Dist97: 8 Vector_XXX
+ SG_ LIDAR_Distance97 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1762 LIDAR_Dist98: 8 Vector_XXX
+ SG_ LIDAR_Distance98 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1763 LIDAR_Dist99: 8 Vector_XXX
+ SG_ LIDAR_Distance99 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1764 LIDAR_Dist100: 8 Vector_XXX
+ SG_ LIDAR_Distance100 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1765 LIDAR_Dist101: 8 Vector_XXX
+ SG_ LIDAR_Distance101 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1766 LIDAR_Dist102: 8 Vector_XXX
+ SG_ LIDAR_Distance102 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1767 LIDAR_Dist103: 8 Vector_XXX
+ SG_ LIDAR_Distance103 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1768 LIDAR_Dist104: 8 Vector_XXX
+ SG_ LIDAR_Distance104 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1769 LIDAR_Dist105: 8 Vector_XXX
+ SG_ LIDAR_Distance105 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1770 LIDAR_Dist106: 8 Vector_XXX
+ SG_ LIDAR_Distance106 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1771 LIDAR_Dist107: 8 Vector_XXX
+ SG_ LIDAR_Distance107 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1772 LIDAR_Dist108: 8 Vector_XXX
+ SG_ LIDAR_Distance108 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1773 LIDAR_Dist109: 8 Vector_XXX
+ SG_ LIDAR_Distance109 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1774 LIDAR_Dist110: 8 Vector_XXX
+ SG_ LIDAR_Distance110 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1775 LIDAR_Dist111: 8 Vector_XXX
+ SG_ LIDAR_Distance111 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1776 LIDAR_Dist112: 8 Vector_XXX
+ SG_ LIDAR_Distance112 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1777 LIDAR_Dist113: 8 Vector_XXX
+ SG_ LIDAR_Distance113 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1778 LIDAR_Dist114: 8 Vector_XXX
+ SG_ LIDAR_Distance114 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1779 LIDAR_Dist115: 8 Vector_XXX
+ SG_ LIDAR_Distance115 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1780 LIDAR_Dist116: 8 Vector_XXX
+ SG_ LIDAR_Distance116 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1781 LIDAR_Dist117: 8 Vector_XXX
+ SG_ LIDAR_Distance117 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1782 LIDAR_Dist118: 8 Vector_XXX
+ SG_ LIDAR_Distance118 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1783 LIDAR_Dist119: 8 Vector_XXX
+ SG_ LIDAR_Distance119 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1784 LIDAR_Dist120: 8 Vector_XXX
+ SG_ LIDAR_Distance120 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1785 LIDAR_Dist121: 8 Vector_XXX
+ SG_ LIDAR_Distance121 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1786 LIDAR_Dist122: 8 Vector_XXX
+ SG_ LIDAR_Distance122 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1787 LIDAR_Dist123: 8 Vector_XXX
+ SG_ LIDAR_Distance123 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1788 LIDAR_Dist124: 8 Vector_XXX
+ SG_ LIDAR_Distance124 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1789 LIDAR_Dist125: 8 Vector_XXX
+ SG_ LIDAR_Distance125 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1790 LIDAR_Dist126: 8 Vector_XXX
+ SG_ LIDAR_Distance126 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1791 LIDAR_Dist127: 8 Vector_XXX
+ SG_ LIDAR_Distance127 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1792 LIDAR_Dist128: 8 Vector_XXX
+ SG_ LIDAR_Distance128 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1793 LIDAR_Dist129: 8 Vector_XXX
+ SG_ LIDAR_Distance129 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1794 LIDAR_Dist130: 8 Vector_XXX
+ SG_ LIDAR_Distance130 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1795 LIDAR_Dist131: 8 Vector_XXX
+ SG_ LIDAR_Distance131 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1796 LIDAR_Dist132: 8 Vector_XXX
+ SG_ LIDAR_Distance132 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1797 LIDAR_Dist133: 8 Vector_XXX
+ SG_ LIDAR_Distance133 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1798 LIDAR_Dist134: 8 Vector_XXX
+ SG_ LIDAR_Distance134 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1799 LIDAR_Dist135: 8 Vector_XXX
+ SG_ LIDAR_Distance135 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1800 LIDAR_Dist136: 8 Vector_XXX
+ SG_ LIDAR_Distance136 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1801 LIDAR_Dist137: 8 Vector_XXX
+ SG_ LIDAR_Distance137 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1802 LIDAR_Dist138: 8 Vector_XXX
+ SG_ LIDAR_Distance138 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1803 LIDAR_Dist139: 8 Vector_XXX
+ SG_ LIDAR_Distance139 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1804 LIDAR_Dist140: 8 Vector_XXX
+ SG_ LIDAR_Distance140 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1805 LIDAR_Dist141: 8 Vector_XXX
+ SG_ LIDAR_Distance141 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1806 LIDAR_Dist142: 8 Vector_XXX
+ SG_ LIDAR_Distance142 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1807 LIDAR_Dist143: 8 Vector_XXX
+ SG_ LIDAR_Distance143 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1808 LIDAR_Dist144: 8 Vector_XXX
+ SG_ LIDAR_Distance144 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1809 LIDAR_Dist145: 8 Vector_XXX
+ SG_ LIDAR_Distance145 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1810 LIDAR_Dist146: 8 Vector_XXX
+ SG_ LIDAR_Distance146 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1811 LIDAR_Dist147: 8 Vector_XXX
+ SG_ LIDAR_Distance147 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1812 LIDAR_Dist148: 8 Vector_XXX
+ SG_ LIDAR_Distance148 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1813 LIDAR_Dist149: 8 Vector_XXX
+ SG_ LIDAR_Distance149 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1814 LIDAR_Dist150: 8 Vector_XXX
+ SG_ LIDAR_Distance150 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1815 LIDAR_Dist151: 8 Vector_XXX
+ SG_ LIDAR_Distance151 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1816 LIDAR_Dist152: 8 Vector_XXX
+ SG_ LIDAR_Distance152 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1817 LIDAR_Dist153: 8 Vector_XXX
+ SG_ LIDAR_Distance153 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1818 LIDAR_Dist154: 8 Vector_XXX
+ SG_ LIDAR_Distance154 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1819 LIDAR_Dist155: 8 Vector_XXX
+ SG_ LIDAR_Distance155 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1820 LIDAR_Dist156: 8 Vector_XXX
+ SG_ LIDAR_Distance156 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1821 LIDAR_Dist157: 8 Vector_XXX
+ SG_ LIDAR_Distance157 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1822 LIDAR_Dist158: 8 Vector_XXX
+ SG_ LIDAR_Distance158 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1823 LIDAR_Dist159: 8 Vector_XXX
+ SG_ LIDAR_Distance159 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1824 LIDAR_Dist160: 8 Vector_XXX
+ SG_ LIDAR_Distance160 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1825 LIDAR_Dist161: 8 Vector_XXX
+ SG_ LIDAR_Distance161 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1826 LIDAR_Dist162: 8 Vector_XXX
+ SG_ LIDAR_Distance162 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1827 LIDAR_Dist163: 8 Vector_XXX
+ SG_ LIDAR_Distance163 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1828 LIDAR_Dist164: 8 Vector_XXX
+ SG_ LIDAR_Distance164 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1829 LIDAR_Dist165: 8 Vector_XXX
+ SG_ LIDAR_Distance165 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1830 LIDAR_Dist166: 8 Vector_XXX
+ SG_ LIDAR_Distance166 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1831 LIDAR_Dist167: 8 Vector_XXX
+ SG_ LIDAR_Distance167 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1832 LIDAR_Dist168: 8 Vector_XXX
+ SG_ LIDAR_Distance168 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1833 LIDAR_Dist169: 8 Vector_XXX
+ SG_ LIDAR_Distance169 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1834 LIDAR_Dist170: 8 Vector_XXX
+ SG_ LIDAR_Distance170 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1835 LIDAR_Dist171: 8 Vector_XXX
+ SG_ LIDAR_Distance171 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1836 LIDAR_Dist172: 8 Vector_XXX
+ SG_ LIDAR_Distance172 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1837 LIDAR_Dist173: 8 Vector_XXX
+ SG_ LIDAR_Distance173 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1838 LIDAR_Dist174: 8 Vector_XXX
+ SG_ LIDAR_Distance174 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1839 LIDAR_Dist175: 8 Vector_XXX
+ SG_ LIDAR_Distance175 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1840 LIDAR_Dist176: 8 Vector_XXX
+ SG_ LIDAR_Distance176 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1841 LIDAR_Dist177: 8 Vector_XXX
+ SG_ LIDAR_Distance177 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1842 LIDAR_Dist178: 8 Vector_XXX
+ SG_ LIDAR_Distance178 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1843 LIDAR_Dist179: 8 Vector_XXX
+ SG_ LIDAR_Distance179 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1844 LIDAR_Dist180: 8 Vector_XXX
+ SG_ LIDAR_Distance180 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1845 LIDAR_Dist181: 8 Vector_XXX
+ SG_ LIDAR_Distance181 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1846 LIDAR_Dist182: 8 Vector_XXX
+ SG_ LIDAR_Distance182 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1847 LIDAR_Dist183: 8 Vector_XXX
+ SG_ LIDAR_Distance183 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1848 LIDAR_Dist184: 8 Vector_XXX
+ SG_ LIDAR_Distance184 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1849 LIDAR_Dist185: 8 Vector_XXX
+ SG_ LIDAR_Distance185 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1850 LIDAR_Dist186: 8 Vector_XXX
+ SG_ LIDAR_Distance186 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1851 LIDAR_Dist187: 8 Vector_XXX
+ SG_ LIDAR_Distance187 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1852 LIDAR_Dist188: 8 Vector_XXX
+ SG_ LIDAR_Distance188 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1853 LIDAR_Dist189: 8 Vector_XXX
+ SG_ LIDAR_Distance189 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1854 LIDAR_Dist190: 8 Vector_XXX
+ SG_ LIDAR_Distance190 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1855 LIDAR_Dist191: 8 Vector_XXX
+ SG_ LIDAR_Distance191 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1856 LIDAR_Dist192: 8 Vector_XXX
+ SG_ LIDAR_Distance192 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1857 LIDAR_Dist193: 8 Vector_XXX
+ SG_ LIDAR_Distance193 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1858 LIDAR_Dist194: 8 Vector_XXX
+ SG_ LIDAR_Distance194 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1859 LIDAR_Dist195: 8 Vector_XXX
+ SG_ LIDAR_Distance195 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1860 LIDAR_Dist196: 8 Vector_XXX
+ SG_ LIDAR_Distance196 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1861 LIDAR_Dist197: 8 Vector_XXX
+ SG_ LIDAR_Distance197 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1862 LIDAR_Dist198: 8 Vector_XXX
+ SG_ LIDAR_Distance198 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1863 LIDAR_Dist199: 8 Vector_XXX
+ SG_ LIDAR_Distance199 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1864 LIDAR_Dist200: 8 Vector_XXX
+ SG_ LIDAR_Distance200 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1865 LIDAR_Dist201: 8 Vector_XXX
+ SG_ LIDAR_Distance201 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1866 LIDAR_Dist202: 8 Vector_XXX
+ SG_ LIDAR_Distance202 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1867 LIDAR_Dist203: 8 Vector_XXX
+ SG_ LIDAR_Distance203 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1868 LIDAR_Dist204: 8 Vector_XXX
+ SG_ LIDAR_Distance204 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1869 LIDAR_Dist205: 8 Vector_XXX
+ SG_ LIDAR_Distance205 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1870 LIDAR_Dist206: 8 Vector_XXX
+ SG_ LIDAR_Distance206 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1871 LIDAR_Dist207: 8 Vector_XXX
+ SG_ LIDAR_Distance207 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1872 LIDAR_Dist208: 8 Vector_XXX
+ SG_ LIDAR_Distance208 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1873 LIDAR_Dist209: 8 Vector_XXX
+ SG_ LIDAR_Distance209 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1874 LIDAR_Dist210: 8 Vector_XXX
+ SG_ LIDAR_Distance210 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1875 LIDAR_Dist211: 8 Vector_XXX
+ SG_ LIDAR_Distance211 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1876 LIDAR_Dist212: 8 Vector_XXX
+ SG_ LIDAR_Distance212 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1877 LIDAR_Dist213: 8 Vector_XXX
+ SG_ LIDAR_Distance213 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1878 LIDAR_Dist214: 8 Vector_XXX
+ SG_ LIDAR_Distance214 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1879 LIDAR_Dist215: 8 Vector_XXX
+ SG_ LIDAR_Distance215 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1880 LIDAR_Dist216: 8 Vector_XXX
+ SG_ LIDAR_Distance216 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1881 LIDAR_Dist217: 8 Vector_XXX
+ SG_ LIDAR_Distance217 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1882 LIDAR_Dist218: 8 Vector_XXX
+ SG_ LIDAR_Distance218 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1883 LIDAR_Dist219: 8 Vector_XXX
+ SG_ LIDAR_Distance219 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1884 LIDAR_Dist220: 8 Vector_XXX
+ SG_ LIDAR_Distance220 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1885 LIDAR_Dist221: 8 Vector_XXX
+ SG_ LIDAR_Distance221 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1886 LIDAR_Dist222: 8 Vector_XXX
+ SG_ LIDAR_Distance222 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1887 LIDAR_Dist223: 8 Vector_XXX
+ SG_ LIDAR_Distance223 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1888 LIDAR_Dist224: 8 Vector_XXX
+ SG_ LIDAR_Distance224 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1889 LIDAR_Dist225: 8 Vector_XXX
+ SG_ LIDAR_Distance225 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1890 LIDAR_Dist226: 8 Vector_XXX
+ SG_ LIDAR_Distance226 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1891 LIDAR_Dist227: 8 Vector_XXX
+ SG_ LIDAR_Distance227 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1892 LIDAR_Dist228: 8 Vector_XXX
+ SG_ LIDAR_Distance228 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1893 LIDAR_Dist229: 8 Vector_XXX
+ SG_ LIDAR_Distance229 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1894 LIDAR_Dist230: 8 Vector_XXX
+ SG_ LIDAR_Distance230 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1895 LIDAR_Dist231: 8 Vector_XXX
+ SG_ LIDAR_Distance231 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1896 LIDAR_Dist232: 8 Vector_XXX
+ SG_ LIDAR_Distance232 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1897 LIDAR_Dist233: 8 Vector_XXX
+ SG_ LIDAR_Distance233 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1898 LIDAR_Dist234: 8 Vector_XXX
+ SG_ LIDAR_Distance234 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1899 LIDAR_Dist235: 8 Vector_XXX
+ SG_ LIDAR_Distance235 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1900 LIDAR_Dist236: 8 Vector_XXX
+ SG_ LIDAR_Distance236 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1901 LIDAR_Dist237: 8 Vector_XXX
+ SG_ LIDAR_Distance237 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1902 LIDAR_Dist238: 8 Vector_XXX
+ SG_ LIDAR_Distance238 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1903 LIDAR_Dist239: 8 Vector_XXX
+ SG_ LIDAR_Distance239 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1904 LIDAR_Dist240: 8 Vector_XXX
+ SG_ LIDAR_Distance240 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1905 LIDAR_Dist241: 8 Vector_XXX
+ SG_ LIDAR_Distance241 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1906 LIDAR_Dist242: 8 Vector_XXX
+ SG_ LIDAR_Distance242 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1907 LIDAR_Dist243: 8 Vector_XXX
+ SG_ LIDAR_Distance243 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1908 LIDAR_Dist244: 8 Vector_XXX
+ SG_ LIDAR_Distance244 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1909 LIDAR_Dist245: 8 Vector_XXX
+ SG_ LIDAR_Distance245 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1910 LIDAR_Dist246: 8 Vector_XXX
+ SG_ LIDAR_Distance246 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1911 LIDAR_Dist247: 8 Vector_XXX
+ SG_ LIDAR_Distance247 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1912 LIDAR_Dist248: 8 Vector_XXX
+ SG_ LIDAR_Distance248 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1913 LIDAR_Dist249: 8 Vector_XXX
+ SG_ LIDAR_Distance249 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1914 LIDAR_Dist250: 8 Vector_XXX
+ SG_ LIDAR_Distance250 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1915 LIDAR_Dist251: 8 Vector_XXX
+ SG_ LIDAR_Distance251 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1916 LIDAR_Dist252: 8 Vector_XXX
+ SG_ LIDAR_Distance252 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1917 LIDAR_Dist253: 8 Vector_XXX
+ SG_ LIDAR_Distance253 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1918 LIDAR_Dist254: 8 Vector_XXX
+ SG_ LIDAR_Distance254 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1919 LIDAR_Dist255: 8 Vector_XXX
+ SG_ LIDAR_Distance255 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1920 LIDAR_Dist256: 8 Vector_XXX
+ SG_ LIDAR_Distance256 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1921 LIDAR_Dist257: 8 Vector_XXX
+ SG_ LIDAR_Distance257 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1922 LIDAR_Dist258: 8 Vector_XXX
+ SG_ LIDAR_Distance258 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1923 LIDAR_Dist259: 8 Vector_XXX
+ SG_ LIDAR_Distance259 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1924 LIDAR_Dist260: 8 Vector_XXX
+ SG_ LIDAR_Distance260 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1925 LIDAR_Dist261: 8 Vector_XXX
+ SG_ LIDAR_Distance261 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1926 LIDAR_Dist262: 8 Vector_XXX
+ SG_ LIDAR_Distance262 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1927 LIDAR_Dist263: 8 Vector_XXX
+ SG_ LIDAR_Distance263 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1928 LIDAR_Dist264: 8 Vector_XXX
+ SG_ LIDAR_Distance264 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1929 LIDAR_Dist265: 8 Vector_XXX
+ SG_ LIDAR_Distance265 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1930 LIDAR_Dist266: 8 Vector_XXX
+ SG_ LIDAR_Distance266 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1931 LIDAR_Dist267: 8 Vector_XXX
+ SG_ LIDAR_Distance267 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1932 LIDAR_Dist268: 8 Vector_XXX
+ SG_ LIDAR_Distance268 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1933 LIDAR_Dist269: 8 Vector_XXX
+ SG_ LIDAR_Distance269 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1934 LIDAR_Dist270: 8 Vector_XXX
+ SG_ LIDAR_Distance270 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1935 LIDAR_Dist271: 8 Vector_XXX
+ SG_ LIDAR_Distance271 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1936 LIDAR_Dist272: 8 Vector_XXX
+ SG_ LIDAR_Distance272 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1937 LIDAR_Dist273: 8 Vector_XXX
+ SG_ LIDAR_Distance273 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1938 LIDAR_Dist274: 8 Vector_XXX
+ SG_ LIDAR_Distance274 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1939 LIDAR_Dist275: 8 Vector_XXX
+ SG_ LIDAR_Distance275 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1940 LIDAR_Dist276: 8 Vector_XXX
+ SG_ LIDAR_Distance276 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1941 LIDAR_Dist277: 8 Vector_XXX
+ SG_ LIDAR_Distance277 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1942 LIDAR_Dist278: 8 Vector_XXX
+ SG_ LIDAR_Distance278 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1943 LIDAR_Dist279: 8 Vector_XXX
+ SG_ LIDAR_Distance279 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1944 LIDAR_Dist280: 8 Vector_XXX
+ SG_ LIDAR_Distance280 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1945 LIDAR_Dist281: 8 Vector_XXX
+ SG_ LIDAR_Distance281 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1946 LIDAR_Dist282: 8 Vector_XXX
+ SG_ LIDAR_Distance282 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1947 LIDAR_Dist283: 8 Vector_XXX
+ SG_ LIDAR_Distance283 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1948 LIDAR_Dist284: 8 Vector_XXX
+ SG_ LIDAR_Distance284 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1949 LIDAR_Dist285: 8 Vector_XXX
+ SG_ LIDAR_Distance285 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1950 LIDAR_Dist286: 8 Vector_XXX
+ SG_ LIDAR_Distance286 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1951 LIDAR_Dist287: 8 Vector_XXX
+ SG_ LIDAR_Distance287 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1952 LIDAR_Dist288: 8 Vector_XXX
+ SG_ LIDAR_Distance288 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1953 LIDAR_Dist289: 8 Vector_XXX
+ SG_ LIDAR_Distance289 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1954 LIDAR_Dist290: 8 Vector_XXX
+ SG_ LIDAR_Distance290 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1955 LIDAR_Dist291: 8 Vector_XXX
+ SG_ LIDAR_Distance291 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1956 LIDAR_Dist292: 8 Vector_XXX
+ SG_ LIDAR_Distance292 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1957 LIDAR_Dist293: 8 Vector_XXX
+ SG_ LIDAR_Distance293 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1958 LIDAR_Dist294: 8 Vector_XXX
+ SG_ LIDAR_Distance294 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1959 LIDAR_Dist295: 8 Vector_XXX
+ SG_ LIDAR_Distance295 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1960 LIDAR_Dist296: 8 Vector_XXX
+ SG_ LIDAR_Distance296 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1961 LIDAR_Dist297: 8 Vector_XXX
+ SG_ LIDAR_Distance297 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1962 LIDAR_Dist298: 8 Vector_XXX
+ SG_ LIDAR_Distance298 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1963 LIDAR_Dist299: 8 Vector_XXX
+ SG_ LIDAR_Distance299 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1964 LIDAR_Dist300: 8 Vector_XXX
+ SG_ LIDAR_Distance300 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1965 LIDAR_Dist301: 8 Vector_XXX
+ SG_ LIDAR_Distance301 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1966 LIDAR_Dist302: 8 Vector_XXX
+ SG_ LIDAR_Distance302 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1967 LIDAR_Dist303: 8 Vector_XXX
+ SG_ LIDAR_Distance303 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1968 LIDAR_Dist304: 8 Vector_XXX
+ SG_ LIDAR_Distance304 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1969 LIDAR_Dist305: 8 Vector_XXX
+ SG_ LIDAR_Distance305 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1970 LIDAR_Dist306: 8 Vector_XXX
+ SG_ LIDAR_Distance306 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1971 LIDAR_Dist307: 8 Vector_XXX
+ SG_ LIDAR_Distance307 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1972 LIDAR_Dist308: 8 Vector_XXX
+ SG_ LIDAR_Distance308 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1973 LIDAR_Dist309: 8 Vector_XXX
+ SG_ LIDAR_Distance309 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1974 LIDAR_Dist310: 8 Vector_XXX
+ SG_ LIDAR_Distance310 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1975 LIDAR_Dist311: 8 Vector_XXX
+ SG_ LIDAR_Distance311 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1976 LIDAR_Dist312: 8 Vector_XXX
+ SG_ LIDAR_Distance312 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1977 LIDAR_Dist313: 8 Vector_XXX
+ SG_ LIDAR_Distance313 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1978 LIDAR_Dist314: 8 Vector_XXX
+ SG_ LIDAR_Distance314 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1979 LIDAR_Dist315: 8 Vector_XXX
+ SG_ LIDAR_Distance315 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1980 LIDAR_Dist316: 8 Vector_XXX
+ SG_ LIDAR_Distance316 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1981 LIDAR_Dist317: 8 Vector_XXX
+ SG_ LIDAR_Distance317 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1982 LIDAR_Dist318: 8 Vector_XXX
+ SG_ LIDAR_Distance318 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1983 LIDAR_Dist319: 8 Vector_XXX
+ SG_ LIDAR_Distance319 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1984 LIDAR_Dist320: 8 Vector_XXX
+ SG_ LIDAR_Distance320 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1985 LIDAR_Dist321: 8 Vector_XXX
+ SG_ LIDAR_Distance321 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1986 LIDAR_Dist322: 8 Vector_XXX
+ SG_ LIDAR_Distance322 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1987 LIDAR_Dist323: 8 Vector_XXX
+ SG_ LIDAR_Distance323 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1988 LIDAR_Dist324: 8 Vector_XXX
+ SG_ LIDAR_Distance324 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1989 LIDAR_Dist325: 8 Vector_XXX
+ SG_ LIDAR_Distance325 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1990 LIDAR_Dist326: 8 Vector_XXX
+ SG_ LIDAR_Distance326 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1991 LIDAR_Dist327: 8 Vector_XXX
+ SG_ LIDAR_Distance327 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1992 LIDAR_Dist328: 8 Vector_XXX
+ SG_ LIDAR_Distance328 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1993 LIDAR_Dist329: 8 Vector_XXX
+ SG_ LIDAR_Distance329 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1994 LIDAR_Dist330: 8 Vector_XXX
+ SG_ LIDAR_Distance330 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1995 LIDAR_Dist331: 8 Vector_XXX
+ SG_ LIDAR_Distance331 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1996 LIDAR_Dist332: 8 Vector_XXX
+ SG_ LIDAR_Distance332 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1997 LIDAR_Dist333: 8 Vector_XXX
+ SG_ LIDAR_Distance333 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1998 LIDAR_Dist334: 8 Vector_XXX
+ SG_ LIDAR_Distance334 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 1999 LIDAR_Dist335: 8 Vector_XXX
+ SG_ LIDAR_Distance335 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 2000 LIDAR_Dist336: 8 Vector_XXX
+ SG_ LIDAR_Distance336 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 2001 LIDAR_Dist337: 8 Vector_XXX
+ SG_ LIDAR_Distance337 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 2002 LIDAR_Dist338: 8 Vector_XXX
+ SG_ LIDAR_Distance338 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 2003 LIDAR_Dist339: 8 Vector_XXX
+ SG_ LIDAR_Distance339 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 2004 LIDAR_Dist340: 8 Vector_XXX
+ SG_ LIDAR_Distance340 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 2005 LIDAR_Dist341: 8 Vector_XXX
+ SG_ LIDAR_Distance341 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 2006 LIDAR_Dist342: 8 Vector_XXX
+ SG_ LIDAR_Distance342 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 2007 LIDAR_Dist343: 8 Vector_XXX
+ SG_ LIDAR_Distance343 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 2008 LIDAR_Dist344: 8 Vector_XXX
+ SG_ LIDAR_Distance344 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 2009 LIDAR_Dist345: 8 Vector_XXX
+ SG_ LIDAR_Distance345 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 2010 LIDAR_Dist346: 8 Vector_XXX
+ SG_ LIDAR_Distance346 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 2011 LIDAR_Dist347: 8 Vector_XXX
+ SG_ LIDAR_Distance347 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 2012 LIDAR_Dist348: 8 Vector_XXX
+ SG_ LIDAR_Distance348 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 2013 LIDAR_Dist349: 8 Vector_XXX
+ SG_ LIDAR_Distance349 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 2014 LIDAR_Dist350: 8 Vector_XXX
+ SG_ LIDAR_Distance350 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 2015 LIDAR_Dist351: 8 Vector_XXX
+ SG_ LIDAR_Distance351 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 2016 LIDAR_Dist352: 8 Vector_XXX
+ SG_ LIDAR_Distance352 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 2017 LIDAR_Dist353: 8 Vector_XXX
+ SG_ LIDAR_Distance353 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 2018 LIDAR_Dist354: 8 Vector_XXX
+ SG_ LIDAR_Distance354 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 2019 LIDAR_Dist355: 8 Vector_XXX
+ SG_ LIDAR_Distance355 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 2020 LIDAR_Dist356: 8 Vector_XXX
+ SG_ LIDAR_Distance356 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 2021 LIDAR_Dist357: 8 Vector_XXX
+ SG_ LIDAR_Distance357 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 2022 LIDAR_Dist358: 8 Vector_XXX
+ SG_ LIDAR_Distance358 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX
+BO_ 2023 LIDAR_Dist359: 8 Vector_XXX
+ SG_ LIDAR_Distance359 : 0|16@1+ (0.001,0) [0|65.535] "m" Vector_XXX

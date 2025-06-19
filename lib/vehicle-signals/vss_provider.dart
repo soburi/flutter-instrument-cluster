@@ -36,23 +36,21 @@ class DashboardVssClient extends VssClient {
     VSSPath.vehicleBatteryChargingStatus,
     VSSPath.vehicleDistanceUnit,
     VSSPath.vehicleTemperatureUnit,
-    for (var i = 0; i < 360; i++) VSSPath.lidarAngle(i),
     for (var i = 0; i < 360; i++) VSSPath.lidarDistance(i),
     VSSPath.steeringCruiseEnable,
     VSSPath.steeringCruiseSet,
     VSSPath.steeringCruiseResume,
     VSSPath.steeringCruiseCancel,
     VSSPath.steeringInfo,
-    VSSPath.steeringLaneDepWarn,
+    VSSPath.steeringLaneDepWarn
   ];
 
-  final List<double> _angles = List.filled(360, 0);
   final List<double> _distances = List.filled(360, 0);
 
   void _publishLidarIfReady() {
     final points = List.generate(
       360,
-      (i) => LidarPoint(angle: _angles[i], distance: _distances[i]),
+      (i) => LidarPoint(angle: i.toDouble(), distance: _distances[i]),
     );
     ref.read(lidarProvider.notifier).update(points);
   }
@@ -277,18 +275,7 @@ class DashboardVssClient extends VssClient {
 
       default:
         final path = update.entry.path;
-        if (path.startsWith(VSSPath.lidarAnglePrefix)) {
-          if (update.entry.value.hasFloat()) {
-            final idx = int.tryParse(
-                  path.substring(VSSPath.lidarAnglePrefix.length)) ??
-                -1;
-            if (idx >= 0 && idx < 360) {
-              _angles[idx] = update.entry.value.float;
-              _publishLidarIfReady();
-              break;
-            }
-          }
-        } else if (path.startsWith(VSSPath.lidarDistancePrefix)) {
+        if (path.startsWith(VSSPath.lidarDistancePrefix)) {
           if (update.entry.value.hasFloat()) {
             final idx = int.tryParse(
                   path.substring(VSSPath.lidarDistancePrefix.length)) ??
