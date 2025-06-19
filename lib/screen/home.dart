@@ -326,7 +326,7 @@ class _HomeState extends ConsumerState<Home> {
                               ),
                             ],
                           ),
-                        )
+                        ),
                         Align(
                           alignment: Alignment.center,
                           child: LidarDisplay(
