@@ -24,9 +24,11 @@ class _LidarPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    // draw background
-    canvas.drawRect(
-        Offset.zero & size,
+    // draw background without altering the shape of the canvas
+    final radius = size.width / 2;
+    canvas.drawCircle(
+        Offset(radius, radius),
+        radius,
         Paint()
           ..color = Colors.blueGrey.shade100
           ..style = PaintingStyle.fill);
