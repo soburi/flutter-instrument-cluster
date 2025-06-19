@@ -357,39 +357,44 @@ class LidarMessageSender(object):
         self.verbose = verbose
         self.thread = threading.Thread(target=self.run, daemon=True)
 
-        # Pre-create one rotation of test data: 0-359 deg in 1 deg steps
-        self.data = []
-        for angle in range(360):
-            # Simple distance pattern for testing
-            distance = 5 + 2 * math.sin(math.radians(angle))
-            self.data.append((angle, distance))
-
-        # Each run() iteration sends 45 items from this table
+        # Number of angle/distance pairs to send in each batch
+        # Matches the LIDAR display update rate used in the Flutter app.
         self.batch_size = 45
+
+        # Keep track of the current angle index and phase shift
+        self._idx = 0
+        self._tick = 0
 
     def start(self):
         self.thread.start()
 
     def run(self):
-        idx = 0
-        count = len(self.data)
         while True:
-            # Send a batch of points
+            # Send a batch of points using the same pattern as the Flutter
+            # getCanPointStream() implementation.  The distance is a sine wave
+            # with amplitude 5 m, offset by 5 m.  The phase (tick) is advanced
+            # each time a batch is sent so that the pattern appears to rotate
+            # over time.
             for _ in range(self.batch_size):
-                angle, distance = self.data[idx % count]
+                angle = self._idx % 360
+                distance = 5 + 5 * math.sin(math.radians(angle + self._tick))
                 if self.verbose:
                     print(f'lidar angle = {angle} distance = {distance}')
+
                 # Convert to raw 16-bit values according to the DBC:
-                # LIDAR_Angle    : 0.01 deg/bit
-                # LIDAR_Distance : 0.001 m/bit
+                #   LIDAR_Angle    : 0.01 deg/bit
+                #   LIDAR_Distance : 0.001 m/bit
                 angle_raw = int(angle / 0.01)
                 distance_raw = int(distance / 0.001)
                 data = struct.pack('<HH', angle_raw, distance_raw)
                 self.can_sock.send(0x680, data, 0)
-                idx += 1
+                self._idx += 1
 
-            # Wait before next batch
-            time.sleep(0.1)
+            # Advance the phase for the next batch
+            self._tick = (self._tick + 1) % 360
+
+            # Wait before sending the next set of points
+            time.sleep(0.2)
 
 def main():
     parser = argparse.ArgumentParser(description='Simple CAN vehicle simulator.')
