@@ -278,11 +278,11 @@
           },
           "Lidar": {
             "children": {
-              "Angles": {
-                "datatype": "float[]",
+              "Angle": {
+                "datatype": "float",
                 "dbc2vss": {
                   "interval_ms": 100,
-                  "signal": "LidarAngles"
+                  "signal": "LIDAR_Angle"
                 },
                 "description": "Array of lidar scan angles.",
                 "type": "sensor",
@@ -291,11 +291,11 @@
                   "signal": "LidarAngles"
                 }
               },
-              "Distances": {
-                "datatype": "float[]",
+              "Distance": {
+                "datatype": "float",
                 "dbc2vss": {
                   "interval_ms": 100,
-                  "signal": "LidarDistances"
+                  "signal": "LIDAR_Distance"
                 },
                 "description": "Array of lidar scan distances.",
                 "type": "sensor",
