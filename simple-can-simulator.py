@@ -350,15 +350,15 @@ class StatusMessageSender(object):
             time.sleep(0.1)
 
 class LidarMessageSender(object):
-    """Periodically send batches of Lidar angle/distance pairs."""
+    """Periodically send Lidar distance samples using the new format."""
 
     def __init__(self, can_sock, verbose=False):
         self.can_sock = can_sock
         self.verbose = verbose
         self.thread = threading.Thread(target=self.run, daemon=True)
 
-        # Number of angle/distance pairs to send in each batch
-        # Matches the LIDAR display update rate used in the Flutter app.
+        # Number of distance samples to send in each batch. Matches the LIDAR
+        # display update rate used in the Flutter app.
         self.batch_size = 45
 
         # Keep track of the current angle index and phase shift
@@ -371,23 +371,22 @@ class LidarMessageSender(object):
     def run(self):
         while True:
             # Send a batch of points using the same pattern as the Flutter
-            # getCanPointStream() implementation.  The distance is a sine wave
-            # with amplitude 5 m, offset by 5 m.  The phase (tick) is advanced
+            # getCanPointStream() implementation. The distance is a sine wave
+            # with amplitude 5 m, offset by 5 m. The phase (tick) is advanced
             # each time a batch is sent so that the pattern appears to rotate
-            # over time.
+            # over time.  Each sample is transmitted on a dedicated CAN frame
+            # whose ID encodes the angle index.
             for _ in range(self.batch_size):
                 angle = self._idx % 360
                 distance = 5 + 5 * math.sin(math.radians(angle + self._tick))
                 if self.verbose:
                     print(f'lidar angle = {angle} distance = {distance}')
 
-                # Convert to raw 16-bit values according to the DBC:
-                #   LIDAR_Angle    : 0.01 deg/bit
-                #   LIDAR_Distance : 0.001 m/bit
-                angle_raw = int(angle / 0.01)
+                # Convert to raw 16-bit value according to the DBC:
+                #   LIDAR_DistanceX : 0.001 m/bit
                 distance_raw = int(distance / 0.001)
-                data = struct.pack('<HH', angle_raw, distance_raw)
-                self.can_sock.send(0x680, data, 0)
+                data = struct.pack('<H', distance_raw)
+                self.can_sock.send(0x680 + angle, data, 0)
                 self._idx += 1
 
             # Advance the phase for the next batch
